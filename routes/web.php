@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get("/testTemplate", function (){
+    return view("front.layouts.app");
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

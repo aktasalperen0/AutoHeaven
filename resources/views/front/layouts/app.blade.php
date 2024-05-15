@@ -12,12 +12,12 @@
     <title>PHPJabbers.com | Free Car Dealer Website Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset("vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="{{asset("assets/css/fontawesome.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/css/owl.css")}}">
 </head>
 
 <body>
@@ -160,7 +160,7 @@
             </div>
             <div class="col-md-4">
                 <div class="service-item">
-                    <img src="assets/images/product-1-720x480.jpg" alt="">
+                    <img src="{{asset("assets/images/product-1-720x480.jpg")}}" alt="">
                     <div class="down-content">
                         <h4>Lorem ipsum dolor sit amet</h4>
                         <div style="margin-bottom:10px;">
@@ -182,7 +182,7 @@
             </div>
             <div class="col-md-4">
                 <div class="service-item">
-                    <img src="assets/images/product-2-720x480.jpg" alt="">
+                    <img src="{{asset("assets/images/product-2-720x480.jpg")}}" alt="">
                     <div class="down-content">
                         <h4>Lorem ipsum dolor sit amet</h4>
                         <div style="margin-bottom:10px;">
@@ -204,7 +204,7 @@
             </div>
             <div class="col-md-4">
                 <div class="service-item">
-                    <img src="assets/images/product-3-720x480.jpg" alt="">
+                    <img src="{{asset("assets/images/product-3-720x480.jpg")}}" alt="">
                     <div class="down-content">
                         <h4>Lorem ipsum dolor sit amet</h4>
                         <div style="margin-bottom:10px;">
@@ -234,7 +234,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="left-image">
-                        <img src="assets/images/about-1-570x350.jpg" class="img-fluid" alt="">
+                        <img src="{{asset("assets/images/about-1-570x350.jpg")}}" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 align-self-center">
@@ -277,17 +277,17 @@
             <div class="col-md-8">
                 <section class='tabs-content'>
                     <article id='tabs-1'>
-                        <img src="assets/images/blog-image-1-940x460.jpg" alt="">
+                        <img src="{{asset("assets/images/blog-image-1-940x460.jpg")}}" alt="">
                         <h4><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></h4>
                         <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet.</p>
                     </article>
                     <article id='tabs-2'>
-                        <img src="assets/images/blog-image-2-940x460.jpg" alt="">
+                        <img src="{{asset("assets/images/blog-image-2-940x460.jpg")}}" alt="">
                         <h4><a href="blog-details.html">Mauris lobortis quam id dictum dignissim</a></h4>
                         <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet</p>
                     </article>
                     <article id='tabs-3'>
-                        <img src="assets/images/blog-image-3-940x460.jpg" alt="">
+                        <img src="{{asset("assets/images/blog-image-3-940x460.jpg")}}" alt="">
                         <h4><a href="blog-details.html">Class aptent taciti sociosqu ad litora torquent per</a></h4>
                         <p>Mauris lobortis quam id dictum dignissim. Donec pellentesque erat dolor, cursus dapibus turpis hendrerit quis. Suspendisse at suscipit arcu. Nulla sed erat lectus. Nulla facilisi. In sit amet neque sapien. Donec scelerisque mi at gravida efficitur. Nunc lacinia a est eu malesuada. Curabitur eleifend elit sapien, sed pulvinar orci luctus eget.
                         </p>
@@ -485,14 +485,14 @@
 </div>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset("vendor/jquery/jquery.min.js")}}"></script>
+<script src="{{asset("vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
 
 <!-- Additional Scripts -->
-<script src="assets/js/custom.js"></script>
-<script src="assets/js/owl.js"></script>
-<script src="assets/js/slick.js"></script>
-<script src="assets/js/accordions.js"></script>
+<script src="{{asset("assets/js/custom.js")}}"></script>
+<script src="{{asset("assets/js/owl.js")}}"></script>
+<script src="{{asset("assets/js/slick.js")}}"></script>
+<script src="{{asset("assets/js/accordions.js")}}"></script>
 
 <script language = "text/Javascript">
     cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
