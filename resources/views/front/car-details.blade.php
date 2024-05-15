@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <div>
-                        <img src="assets/images/product-1-720x480.jpg" alt="" class="img-fluid wc-image">
+                        <img src="{{asset("assets/images/product-1-720x480.jpg")}}" alt="" class="img-fluid wc-image">
                     </div>
 
                     <br>
@@ -28,38 +28,38 @@
                     <div class="row">
                         <div class="col-sm-4 col-6">
                             <div>
-                                <img src="assets/images/product-1-720x480.jpg" alt="" class="img-fluid">
+                                <img src="{{asset("assets/images/product-1-720x480.jpg")}}" alt="" class="img-fluid">
                             </div>
                             <br>
                         </div>
                         <div class="col-sm-4 col-6">
                             <div>
-                                <img src="assets/images/product-2-720x480.jpg" alt="" class="img-fluid">
+                                <img src="{{asset("assets/images/product-2-720x480.jpg")}}" alt="" class="img-fluid">
                             </div>
                             <br>
                         </div>
                         <div class="col-sm-4 col-6">
                             <div>
-                                <img src="assets/images/product-3-720x480.jpg" alt="" class="img-fluid">
+                                <img src="{{asset("assets/images/product-3-720x480.jpg")}}" alt="" class="img-fluid">
                             </div>
                             <br>
                         </div>
 
                         <div class="col-sm-4 col-6">
                             <div>
-                                <img src="assets/images/product-4-720x480.jpg" alt="" class="img-fluid">
+                                <img src="{{asset("assets/images/product-4-720x480.jpg")}}" alt="" class="img-fluid">
                             </div>
                             <br>
                         </div>
                         <div class="col-sm-4 col-6">
                             <div>
-                                <img src="assets/images/product-5-720x480.jpg" alt="" class="img-fluid">
+                                <img src="{{asset("assets/images/product-5-720x480.jpg")}}" alt="" class="img-fluid">
                             </div>
                             <br>
                         </div>
                         <div class="col-sm-4 col-6">
                             <div>
-                                <img src="assets/images/product-6-720x480.jpg" alt="" class="img-fluid">
+                                <img src="{{asset("assets/images/product-6-720x480.jpg")}}" alt="" class="img-fluid">
                             </div>
                             <br>
                         </div>

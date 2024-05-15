@@ -18,7 +18,7 @@
             <div class="more-info-content">
                 <div class="right-content">
                     <div>
-                        <img src="assets/images/blog-image-fullscren-1-1920x700.jpg" class="img-fluid" alt="">
+                        <img src="{{asset("assets/images/blog-image-fullscren-1-1920x700.jpg")}}" class="img-fluid" alt="">
                     </div>
                     <br>
                     <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>

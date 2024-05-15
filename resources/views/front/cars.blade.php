@@ -189,7 +189,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="service-item">
-                        <img src="assets/images/product-1-720x480.jpg" alt="">
+                        <img src="{{asset("assets/images/product-1-720x480.jpg")}}" alt="">
                         <div class="down-content">
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
@@ -203,7 +203,7 @@
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="car-details.html" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
                         </div>
                     </div>
 
@@ -212,7 +212,7 @@
 
                 <div class="col-md-4">
                     <div class="service-item">
-                        <img src="assets/images/product-2-720x480.jpg" alt="">
+                        <img src="{{asset("assets/images/product-2-720x480.jpg")}}" alt="">
                         <div class="down-content">
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
@@ -226,7 +226,7 @@
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="car-details.html" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
                         </div>
                     </div>
 
@@ -235,7 +235,7 @@
 
                 <div class="col-md-4">
                     <div class="service-item">
-                        <img src="assets/images/product-3-720x480.jpg" alt="">
+                        <img src="{{asset("assets/images/product-3-720x480.jpg")}}" alt="">
                         <div class="down-content">
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
@@ -249,7 +249,7 @@
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="car-details.html" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
                         </div>
                     </div>
 
@@ -258,7 +258,7 @@
 
                 <div class="col-md-4">
                     <div class="service-item">
-                        <img src="assets/images/product-4-720x480.jpg" alt="">
+                        <img src="{{asset("assets/images/product-4-720x480.jpg")}}" alt="">
                         <div class="down-content">
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
@@ -272,7 +272,7 @@
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="car-details.html" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
                         </div>
                     </div>
 
@@ -281,7 +281,7 @@
 
                 <div class="col-md-4">
                     <div class="service-item">
-                        <img src="assets/images/product-5-720x480.jpg" alt="">
+                        <img src="{{asset("assets/images/product-5-720x480.jpg")}}" alt="">
                         <div class="down-content">
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
@@ -295,7 +295,7 @@
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="car-details.html" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
                         </div>
                     </div>
 
@@ -304,7 +304,7 @@
 
                 <div class="col-md-4">
                     <div class="service-item">
-                        <img src="assets/images/product-6-720x480.jpg" alt="">
+                        <img src="{{asset("assets/images/product-6-720x480.jpg")}}" alt="">
                         <div class="down-content">
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
@@ -318,7 +318,7 @@
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="car-details.html" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
                         </div>
                     </div>
 

@@ -12,7 +12,7 @@
                         <h6>lorem ipsum dolor sit amet!</h6>
                         <h4>Quam temporibus accusam <br> hic ducimus quia</h4>
                         <p>Magni deserunt dolorem consectetur adipisicing elit. Corporis molestiae optio, laudantium odio quod rerum maiores, omnis unde quae illo.</p>
-                        <a href="cars.html" class="filled-button">Cars</a>
+                        <a href="{{route("cars")}}" class="filled-button">Cars</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                         <h6>magni deserunt dolorem harum quas!</h6>
                         <h4>Aliquam iusto harum <br>  ratione porro odio</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At culpa cupiditate mollitia adipisci assumenda laborum eius quae quo excepturi, eveniet. Dicta nulla ea beatae consequuntur?</p>
-                        <a href="about.html" class="filled-button">About Us</a>
+                        <a href="{{route("about")}}" class="filled-button">About Us</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                         <h6>alias officia qui quae vitae natus!</h6>
                         <h4>Lorem ipsum dolor <br>sit amet, consectetur.</h4>
                         <p>Vivamus ut tellus mi. Nulla nec cursus elit, id vulputate mi. Sed nec cursus augue. Phasellus lacinia ac sapien vitae dapibus. Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</p>
-                        <a href="contact.html" class="filled-button">Contact Us</a>
+                        <a href="{{route("contact")}}" class="filled-button">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <span>Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</span>
                 </div>
                 <div class="col-md-4">
-                    <a href="contact.html" class="border-button">Contact Us</a>
+                    <a href="{{route("contact")}}" class="border-button">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="car-details.html" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
                         </div>
                     </div>
 
@@ -106,7 +106,7 @@
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="car-details.html" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
                         </div>
                     </div>
 
@@ -128,7 +128,7 @@
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="car-details.html" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
                         </div>
                     </div>
 
@@ -152,7 +152,7 @@
                             <span>Who we are</span>
                             <h2>Get to know about <em>our company</em></h2>
                             <p>Curabitur pulvinar sem a leo tempus facilisis. Sed non sagittis neque. Nulla conse quat tellus nibh, id molestie felis sagittis ut. Nam ullamcorper tempus ipsum in cursus</p>
-                            <a href="about.html" class="filled-button">Read More</a>
+                            <a href="{{route("about")}}" class="filled-button">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -178,7 +178,7 @@
                     <br>
 
                     <div class="text-center">
-                        <a href="blog.html" class="filled-button">Read More</a>
+                        <a href="{{route("blog")}}" class="filled-button">Read More</a>
                     </div>
 
                     <br>
@@ -188,17 +188,17 @@
                     <section class='tabs-content'>
                         <article id='tabs-1'>
                             <img src="{{asset("assets/images/blog-image-1-940x460.jpg")}}" alt="">
-                            <h4><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></h4>
+                            <h4><a href="{{route("blog-details")}}">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></h4>
                             <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet.</p>
                         </article>
                         <article id='tabs-2'>
                             <img src="{{asset("assets/images/blog-image-2-940x460.jpg")}}" alt="">
-                            <h4><a href="blog-details.html">Mauris lobortis quam id dictum dignissim</a></h4>
+                            <h4><a href="{{route("blog-details")}}">Mauris lobortis quam id dictum dignissim</a></h4>
                             <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet</p>
                         </article>
                         <article id='tabs-3'>
                             <img src="{{asset("assets/images/blog-image-3-940x460.jpg")}}" alt="">
-                            <h4><a href="blog-details.html">Class aptent taciti sociosqu ad litora torquent per</a></h4>
+                            <h4><a href="{{route("blog-details")}}">Class aptent taciti sociosqu ad litora torquent per</a></h4>
                             <p>Mauris lobortis quam id dictum dignissim. Donec pellentesque erat dolor, cursus dapibus turpis hendrerit quis. Suspendisse at suscipit arcu. Nulla sed erat lectus. Nulla facilisi. In sit amet neque sapien. Donec scelerisque mi at gravida efficitur. Nunc lacinia a est eu malesuada. Curabitur eleifend elit sapien, sed pulvinar orci luctus eget.
                             </p>
                         </article>

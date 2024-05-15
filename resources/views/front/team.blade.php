@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="team-item">
-                        <img src="assets/images/team-image-1-646x680.jpg" alt="">
+                        <img src="{{asset("assets/images/team-image-1-646x680.jpg")}}" alt="">
                         <div class="down-content">
                             <h4>William Smith</h4>
                             <span>Co-Founder</span>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="team-item">
-                        <img src="assets/images/team-image-2-646x680.jpg" alt="">
+                        <img src="{{asset("assets/images/team-image-2-646x680.jpg")}}" alt="">
                         <div class="down-content">
                             <h4>Mary Houston</h4>
                             <span>Chief Marketing Officer</span>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="team-item">
-                        <img src="assets/images/team-image-3-646x680.jpg" alt="">
+                        <img src="{{asset("assets/images/team-image-3-646x680.jpg")}}" alt="">
                         <div class="down-content">
                             <h4>John Doe</h4>
                             <span>Financial Analyst</span>
