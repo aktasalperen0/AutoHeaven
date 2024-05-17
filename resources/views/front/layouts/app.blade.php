@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>PHPJabbers.com | Free Car Dealer Website Template</title>
+    <title>AutoHeaven</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset("vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
@@ -84,6 +84,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route("contact")}}">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        @if (Route::has('login'))
+                            @auth
+                                <a class="nav-link" href="{{route("dashboard")}}">Giriş Yap</a>
+                            @else
+                                <a class="nav-link" href="{{route("login")}}">Giriş Yap</a>
+                            @endauth
+                        @endif
                     </li>
                 </ul>
             </div>
