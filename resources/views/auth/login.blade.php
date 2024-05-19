@@ -10,7 +10,7 @@
                         <h2>Giriş Yap</h2>
 
                         @if($errors->any())
-                            <ul class="mt-5">
+                            <ul class="mt-5" style="list-style-type: disc; text-align: left">
                                 @foreach($errors->all() as $error)
                                     <li style="color: #a4c639">{{$error}}</li>
                                 @endforeach
