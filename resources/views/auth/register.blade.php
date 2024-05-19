@@ -22,6 +22,10 @@
                         </div>
 
                         <div class="input-group mt-3">
+                            <input type="text" class="form-control rounded-0 bg-dark text-light" placeholder="Soyad" name="surname" autocomplete="off">
+                        </div>
+
+                        <div class="input-group mt-3">
                             <input type="email" class="form-control rounded-0 bg-dark text-light" placeholder="E-Posta" name="email" autocomplete="off">
                         </div>
 
