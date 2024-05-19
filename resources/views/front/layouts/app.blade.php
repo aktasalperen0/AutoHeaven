@@ -18,6 +18,20 @@
     <link rel="stylesheet" href="{{asset("assets/css/fontawesome.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/owl.css")}}">
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #232323;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #a4c639;
+        }
+    </style>
 </head>
 
 <body>
