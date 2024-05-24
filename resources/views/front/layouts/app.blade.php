@@ -52,7 +52,7 @@
         <div class="row">
             <div class="col-md-8 col-xs-12">
                 <ul class="left-info">
-                    <li><a href="#"><i class="fa fa-envelope"></i>contact@company.com</a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i>autoheaven@company.com</a></li>
                     <li><a href="#"><i class="fa fa-phone"></i>123-456-7890</a></li>
                 </ul>
             </div>
@@ -77,37 +77,47 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{route("index")}}">Home
+                        <a class="nav-link" href="{{route("index")}}">Ana Sayfa
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route("cars")}}">Cars</a>
+                        <a class="nav-link" href="{{route("cars")}}">Arabalar</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hakkında</a>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{route("about")}}">About Us</a>
+                            <a class="dropdown-item" href="{{route("about")}}">Hakkımızda</a>
                             <a class="dropdown-item" href="{{route("blog")}}">Blog</a>
-                            <a class="dropdown-item" href="{{route("team")}}">Team</a>
-                            <a class="dropdown-item" href="{{route("testimonials")}}">Testimonials</a>
-                            <a class="dropdown-item" href="{{route("faq")}}">FAQ</a>
-                            <a class="dropdown-item" href="{{route("terms")}}">Terms</a>
+                            <a class="dropdown-item" href="{{route("team")}}">Takım</a>
+                            <a class="dropdown-item" href="{{route("testimonials")}}">Görüşler</a>
+                            <a class="dropdown-item" href="{{route("faq")}}">SSS</a>
+                            <a class="dropdown-item" href="{{route("terms")}}">Şartlar</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route("contact")}}">Contact Us</a>
+                        <a class="nav-link" href="{{route("contact")}}">Bize Ulaşın</a>
                     </li>
-                    <li class="nav-item">
-                        @if (Route::has('login'))
-                            @auth
-                                <a class="nav-link" href="{{route("dashboard")}}">Giriş Yap</a>
-                            @else
+                    @if (Route::has('login'))
+                        @auth
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{route("dashboard")}}">Profil</a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Çıkış Yap</a>
+                                    </form>
+                                </div>
+                            </li>
+                        @else
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{route("login")}}">Giriş Yap</a>
-                            @endauth
-                        @endif
-                    </li>
+                            </li>
+                        @endauth
+                    @endif
                 </ul>
             </div>
         </div>
@@ -121,8 +131,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 footer-item">
-                <h4>Car Dealer Website</h4>
-                <p>Vivamus tellus mi. Nulla ne cursus elit,vulputate. Sed ne cursus augue hasellus lacinia sapien vitae.</p>
+                <h4>AutoHeaven</h4>
+                <p>En iyi fiyatlarla güvenilir araçlar sunuyoruz. Kalite ve müşteri memnuniyeti garantisi ile hizmetinizdeyiz.</p>
                 <ul class="social-icons">
                     <li><a rel="nofollow" href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -130,48 +140,48 @@
                 </ul>
             </div>
             <div class="col-md-3 footer-item">
-                <h4>Useful Links</h4>
+                <h4>Kullanışlı Bağlantılar</h4>
                 <ul class="menu-list">
-                    <li><a href="#">Vivamus ut tellus mi</a></li>
-                    <li><a href="#">Nulla nec cursus elit</a></li>
-                    <li><a href="#">Vulputate sed nec</a></li>
-                    <li><a href="#">Cursus augue hasellus</a></li>
-                    <li><a href="#">Lacinia ac sapien</a></li>
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Arabalar</a></li>
+                    <li><a href="#">Bize Ulaşın</a></li>
+                    <li><a href="#">Giriş Yap</a></li>
+                    <li><a href="#">Profil</a></li>
                 </ul>
             </div>
             <div class="col-md-3 footer-item">
-                <h4>Additional Pages</h4>
+                <h4>Ek Sayfalar</h4>
                 <ul class="menu-list">
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Hakkımızda</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">SSS</a></li>
+                    <li><a href="#">Takım</a></li>
+                    <li><a href="#">Şartlar</a></li>
                 </ul>
             </div>
             <div class="col-md-3 footer-item last-item">
-                <h4>Contact Us</h4>
+                <h4>Bize Ulaşın</h4>
                 <div class="contact-form">
                     <form id="contact footer-contact" action="" method="post">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Ad Soyad" required="">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="">
+                                    <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail" required="">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Mesajınız" required=""></textarea>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <button type="submit" id="form-submit" class="filled-button">Send Message</button>
+                                    <button type="submit" id="form-submit" class="filled-button">Mesaj Gönder</button>
                                 </fieldset>
                             </div>
                         </div>
@@ -186,10 +196,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>
-                    Copyright © 2020 Company Name
-                    - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
-                </p>
+                <p>Telif Hakkı © 2024 AutoHeaven</p>
             </div>
         </div>
     </div>
