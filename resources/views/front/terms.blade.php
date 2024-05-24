@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Terms</h1>
-                    <span>Lorem ipsum dolor sit amet.</span>
+                    <h1>Şartlar</h1>
+                    <span>Şartlar ve Koşullar</span>
                 </div>
             </div>
         </div>
@@ -17,31 +17,27 @@
         <div class="container">
             <div class="more-info-content">
                 <div class="right-content">
-                    <span>A) Lorem ipsum dolor sit amet</span>
-                    <h5>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, iure.</h5>
+                    <h5>1. Gizlilik Politikası</h5>
                     <br>
-                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                    <p>Müşteri gizliliği ve veri güvenliği bizim için önemlidir. Gizlilik politikamız hakkında daha fazla bilgi için lütfen web sitemizi ziyaret edin.</p>
 
                     <br>
 
-                    <span>A) Lorem ipsum dolor sit amet</span>
-                    <h5>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, iure.</h5>
+                    <h5>2. Teslimat Şartları</h5>
                     <br>
-                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                    <p>Teslimat süreçleri ve koşulları hakkında detaylı bilgi almak için lütfen müşteri hizmetlerimizle iletişime geçin.</p>
 
                     <br>
 
-                    <span>A) Lorem ipsum dolor sit amet</span>
-                    <h5>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, iure.</h5>
+                    <h5>3. İade ve Değişim Politikası</h5>
                     <br>
-                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                    <p>Satın aldığınız ürünlerle ilgili iade ve değişim koşulları hakkında bilgi almak için lütfen iade politikamızı inceleyin.</p>
 
                     <br>
 
-                    <span>A) Lorem ipsum dolor sit amet</span>
-                    <h5>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, iure.</h5>
+                    <h5>4. Kullanım Şartları</h5>
                     <br>
-                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                    <p>Web sitemizi kullanırken geçerli olan kullanım şartlarımızı gözden geçirmenizi öneririz. Bu şartlar hakkında sorularınız varsa lütfen bize ulaşın.</p>
 
                     <br>
                     <br>

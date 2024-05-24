@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>FAQ</h1>
-                    <span>Lorem ipsum dolor sit amet.</span>
+                    <h1>SSS</h1>
+                    <span>Sıkça Sorulan Sorular</span>
                 </div>
             </div>
         </div>
@@ -17,31 +17,27 @@
         <div class="container">
             <div class="more-info-content">
                 <div class="right-content">
-                    <span>A) Lorem ipsum dolor sit amet</span>
-                    <h5><i class="fa fa-question-circle"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, iure ?</h5>
+                    <h5><i class="fa fa-question-circle"></i>Araçları nereden temin ediyorsunuz?</h5>
                     <br>
-                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                    <p>Araçlarımızı güvenilir kaynaklardan temin ediyoruz. Yetkili satıcılar, özel satıcılar ve açık artırmalar gibi çeşitli kaynaklardan araçları alıyoruz.</p>
 
                     <br>
 
-                    <span>A) Lorem ipsum dolor sit amet</span>
-                    <h5><i class="fa fa-question-circle"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, iure ?</h5>
+                    <h5><i class="fa fa-question-circle"></i>Satın aldığım araç için garanti sağlıyor musunuz?</h5>
                     <br>
-                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                    <p>Evet, tüm satın alınan araçlar için belirli bir garanti sunuyoruz. Garanti süresi ve kapsamı araca ve satış koşullarına bağlı olarak değişebilir. Detaylı bilgi için lütfen satış temsilcilerimizle iletişime geçin.</p>
 
                     <br>
 
-                    <span>A) Lorem ipsum dolor sit amet</span>
-                    <h5><i class="fa fa-question-circle"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, iure ?</h5>
+                    <h5><i class="fa fa-question-circle"></i>Araç inceleme ve test sürüşü yapabilir miyim?</h5>
                     <br>
-                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                    <p>Elbette, müşterilerimize araçlarımızı inceleme ve test sürüşü yapma imkanı sunuyoruz. Size uygun bir zaman ayarlamak için lütfen bize ulaşın.</p>
 
                     <br>
 
-                    <span>A) Lorem ipsum dolor sit amet</span>
-                    <h5><i class="fa fa-question-circle"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, iure ?</h5>
+                    <h5><i class="fa fa-question-circle"></i>Satın aldığım araç için finansman seçenekleri sunuyor musunuz?</h5>
                     <br>
-                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                    <p>Evet, çeşitli finansman seçenekleri sunuyoruz. Kredi, leasing ve taksit gibi seçenekler arasından size en uygun olanını seçebilirsiniz. Detaylı bilgi ve destek için finansman departmanımızla iletişime geçebilirsiniz.</p>
 
                     <br>
                     <br>

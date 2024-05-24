@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Testimonials</h1>
-                    <span>testimonials from our greatest clients</span>
+                    <h1>Görüşler</h1>
+                    <span>Görüşleriniz Bizim İçin Değerlidir</span>
                 </div>
             </div>
         </div>

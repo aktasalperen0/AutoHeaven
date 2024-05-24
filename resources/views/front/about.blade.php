@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>About Us</h1>
-                    <span>We have over 20 years of experience</span>
+                    <h1>Hakkımızda</h1>
+                    <span>20 yılı aşkın deneyime sahibiz</span>
                 </div>
             </div>
         </div>
@@ -21,10 +21,8 @@
                         <div class="row">
                             <div class="col-md-6 align-self-center">
                                 <div class="right-content">
-                                    <span>Lorem ipsum dolor sit amet</span>
-                                    <h2>Get to know about <em>our company</em></h2>
-                                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem.
-                                        <br><br>Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                                    <h2>Şirketimiz hakkında <em>bilgi edinin</em></h2>
+                                    <p>Şirketimiz, araç alım satım sürecinde müşterilerimize en yüksek kalite ve güvenceyi sağlamayı taahhüt eder. Tüm araçlarımız, kapsamlı bir denetimden geçirilmiş ve kalite standartlarımıza uygun olarak sunulmaktadır. Müşteri memnuniyeti bizim için önceliklidir ve satış sonrası destek hizmetlerimizle her zaman yanınızdayız. Güvenilir ve şeffaf hizmet anlayışımızla, aracınızı güvenle seçebilir ve satın alabilirsiniz.</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -44,10 +42,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="left-content">
-                        <span>Lorem ipsum dolor sit amet</span>
-                        <h2>Modi esse sapiente tenetur <em>impedit laudantium laborum</em></h2>
-                        <p>Pellentesque ultrices at turpis in vestibulum. Aenean pretium elit nec congue elementum. Nulla luctus laoreet porta. Maecenas at nisi tempus, porta metus vitae, faucibus augue.
-                            <br><br>Fusce et venenatis ex. Quisque varius, velit quis dictum sagittis, odio velit molestie nunc, ut posuere ante tortor ut neque.</p>
+                        <h2>İlerleme Yolculuğumuz <em>Geçmişten Bugüne Katettiğimiz Mesafe</em></h2>
+                        <p>Şirket olarak geçmişten bugüne, müşterilerimize sağladığımız kaliteli hizmet ve sürekli iyileştirme çabalarımızla önemli ilerlemeler kaydettik. Başlangıçtaki vizyonumuzdan aldığımız ilhamla, her adımda daha iyiye doğru ilerledik. Müşteri memnuniyetini odak noktamız olarak belirleyerek, sunduğumuz ürün ve hizmetlerde sürekli olarak yenilik ve gelişime açık olduk.</p>
                     </div>
                 </div>
                 <div class="col-md-6 align-self-center">
@@ -55,25 +51,25 @@
                         <div class="col-md-6">
                             <div class="count-area-content">
                                 <div class="count-digit">100000</div>
-                                <div class="count-title">Miles driven</div>
+                                <div class="count-title">Kilometre kat edildi</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="count-area-content">
                                 <div class="count-digit">1280</div>
-                                <div class="count-title">Happy clients</div>
+                                <div class="count-title">Mutlu müşteri</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="count-area-content">
                                 <div class="count-digit">12</div>
-                                <div class="count-title">Cities</div>
+                                <div class="count-title">Şehir</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="count-area-content">
                                 <div class="count-digit">26</div>
-                                <div class="count-title">Cars</div>
+                                <div class="count-title">Araba</div>
                             </div>
                         </div>
                     </div>

@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Read our Blog</h1>
-                    <span>Lorem ipsum dolor sit amet consectetur</span>
+                    <h1>Bloglarımızı okuyun</h1>
+                    <span>Keşfet, Oku, Keyif Al!</span>
                 </div>
             </div>
         </div>
@@ -51,16 +51,16 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h4 class="h4">Search</h4>
+                    <h4 class="h4">Ara</h4>
 
                     <form id="search_form" name="gs" method="GET" action="#">
-                        <input type="text" name="q" class="form-control form-control-lg" placeholder="type to search..." autocomplete="on">
+                        <input type="text" name="q" class="form-control form-control-lg" placeholder="aramak için yazın..." autocomplete="on">
                     </form>
 
                     <br>
                     <br>
 
-                    <h4 class="h4">Recent posts</h4>
+                    <h4 class="h4">Yakın zamanda gönderilenler</h4>
 
                     <ul>
                         <li>

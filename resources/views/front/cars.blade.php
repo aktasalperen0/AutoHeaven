@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Cars</h1>
-                    <span>Lorem ipsum dolor sit amet.</span>
+                    <h1>Arabalar</h1>
+                    <span>Yeni ve İkinci El Arabalar İçin!</span>
                 </div>
             </div>
         </div>
@@ -19,51 +19,38 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label>Used/New:</label>
-
-                            <select class="form-control">
-                                <option value="">All</option>
-                                <option value="new">New vehicle</option>
-                                <option value="used">Used vehicle</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            <label>Vehicle Type:</label>
-
-                            <select class="form-control">
-                                <option value="">--All --</option>
-                                <option value="">--All --</option>
-                                <option value="">--All --</option>
-                                <option value="">--All --</option>
-                                <option value="">--All --</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            <label>Make:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="form-group">
                             <label>Model:</label>
 
                             <select class="form-control">
+                                <option value="">--All --</option>
+                                <option value="new">--All --</option>
+                                <option value="used">--All --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>Hasar:</label>
+
+                            <select class="form-control">
+                                <option value="">--All --</option>
+                                <option value="">--All --</option>
+                                <option value="">--All --</option>
+                                <option value="">--All --</option>
+                                <option value="">--All --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>Yıl:</label>
+
+                            <select class="form-control">
+                                <option value="">-- All --</option>
+                                <option value="">-- All --</option>
+                                <option value="">-- All --</option>
                                 <option value="">-- All --</option>
                                 <option value="">-- All --</option>
                                 <option value="">-- All --</option>
@@ -74,7 +61,7 @@
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label>Price:</label>
+                            <label>Renk:</label>
 
                             <select class="form-control">
                                 <option value="">-- All --</option>
@@ -87,7 +74,7 @@
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label>Mileage:</label>
+                            <label>Kilometre:</label>
 
                             <select class="form-control">
                                 <option value="">-- All --</option>
@@ -100,7 +87,7 @@
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label>Engine size:</label>
+                            <label>Garanti:</label>
 
                             <select class="form-control">
                                 <option value="">-- All --</option>
@@ -113,7 +100,7 @@
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label>Power:</label>
+                            <label>Vites Türü:</label>
 
                             <select class="form-control">
                                 <option value="">-- All --</option>
@@ -126,7 +113,7 @@
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label>Fuel:</label>
+                            <label>Yakıt Türü:</label>
 
                             <select class="form-control">
                                 <option value="">-- All --</option>
@@ -139,7 +126,7 @@
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label>Gearbox:</label>
+                            <label>İlan Tarihi:</label>
 
                             <select class="form-control">
                                 <option value="">-- All --</option>
@@ -152,20 +139,7 @@
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label>Doors:</label>
-
-                            <select class="form-control">
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            <label>Number of seats:</label>
+                            <label>Fiyat:</label>
 
                             <select class="form-control">
                                 <option value="">-- All --</option>
@@ -179,7 +153,7 @@
 
                 <div class="col-sm-4 offset-sm-4">
                     <div class="main-button text-center">
-                        <a href="#" class="filled-button">Search</a>
+                        <a href="#" class="filled-button">Ara</a>
                     </div>
                 </div>
                 <br>
@@ -194,16 +168,15 @@
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
                   <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                      <sup>$</sup>11779
                   </span>
                             </div>
 
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">İncele</a>
                         </div>
                     </div>
 
@@ -217,16 +190,15 @@
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
                   <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                      <sup>$</sup>11779
                   </span>
                             </div>
 
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">İncele</a>
                         </div>
                     </div>
 
@@ -240,16 +212,15 @@
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
                   <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                      <sup>$</sup>11779
                   </span>
                             </div>
 
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">İncele</a>
                         </div>
                     </div>
 
@@ -263,16 +234,15 @@
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
                   <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                      <sup>$</sup>11779
                   </span>
                             </div>
 
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">İncele</a>
                         </div>
                     </div>
 
@@ -286,16 +256,15 @@
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
                   <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                      <sup>$</sup>11779
                   </span>
                             </div>
 
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">İncele</a>
                         </div>
                     </div>
 
@@ -309,16 +278,15 @@
                             <h4>Lorem ipsum dolor sit amet</h4>
                             <div style="margin-bottom:10px;">
                   <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                      <sup>$</sup>11779
                   </span>
                             </div>
 
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="{{route("car-details")}}" class="filled-button">View More</a>
+                            <a href="{{route("car-details")}}" class="filled-button">İncele</a>
                         </div>
                     </div>
 

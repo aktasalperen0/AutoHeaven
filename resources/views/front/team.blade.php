@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Team</h1>
-                    <span>Our professional team members</span>
+                    <h1>Takım</h1>
+                    <span>Profesyonel ekip arkadaşlarımız</span>
                 </div>
             </div>
         </div>
@@ -18,17 +18,17 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>Our team <em>members</em></h2>
-                        <span>Suspendisse a ante in neque iaculis lacinia</span>
+                        <h2>Ekip <em>üyelerimiz</em></h2>
+                        <span>Ekip Üyelerimizi Tanıyın</span>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="team-item">
                         <img src="{{asset("assets/images/team-image-1-646x680.jpg")}}" alt="">
                         <div class="down-content">
-                            <h4>William Smith</h4>
-                            <span>Co-Founder</span>
-                            <p>In sem sem, dapibus non lacus auctor, ornare sollicitudin lacus. Aliquam ipsum urna, semper quis.</p>
+                            <h4>Alperen Aktaş</h4>
+                            <span>Junior Web Developer</span>
+                            <p>Merhaba, ben Alperen. Yeniliklere ve öğrenmeye açığım. Takım çalışmasına ve projelerde yer almaya hazırım!</p>
 
                             <p>
                                 <a href="#"><span><i class="fa fa-linkedin"></i></span></a>
@@ -40,9 +40,9 @@
                     <div class="team-item">
                         <img src="{{asset("assets/images/team-image-2-646x680.jpg")}}" alt="">
                         <div class="down-content">
-                            <h4>Mary Houston</h4>
-                            <span>Chief Marketing Officer</span>
-                            <p>In sem sem, dapibus non lacus auctor, ornare sollicitudin lacus. Aliquam ipsum urna, semper quis.</p>
+                            <h4>Elif Bahar Özdoğru</h4>
+                            <span>Senior Web Developer</span>
+                            <p>Merhaba, ben Elif. Yeniliklere ve öğrenmeye açığım. Takım çalışmasına ve projelerde yer almaya hazırım!</p>
                             <p>
                                 <a href="#"><span><i class="fa fa-linkedin"></i></span></a>
                             </p>
@@ -53,9 +53,9 @@
                     <div class="team-item">
                         <img src="{{asset("assets/images/team-image-3-646x680.jpg")}}" alt="">
                         <div class="down-content">
-                            <h4>John Doe</h4>
-                            <span>Financial Analyst</span>
-                            <p>In sem sem, dapibus non lacus auctor, ornare sollicitudin lacus. Aliquam ipsum urna, semper quis.</p>
+                            <h4>Yakup Aktar</h4>
+                            <span>Junior Web Developer</span>
+                            <p>Merhaba, ben Yakup. Yeniliklere ve öğrenmeye açığım. Takım çalışmasına ve projelerde yer almaya hazırım!</p>
                             <p>
                                 <a href="#"><span><i class="fa fa-linkedin"></i></span></a>
                             </p>
