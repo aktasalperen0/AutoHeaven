@@ -1,8 +1,8 @@
 @extends("front.layouts.app")
 
 @section("content")
-    <div class="page-heading">
-        <div class="container">
+    <div class="page-heading p-5">
+        <div class="container p-5 mt-5">
             <div class="row">
                 <div class="col-6 offset-3 p-5" style="background-color: #232323">
                     <form method="POST" action="{{ route('login') }}">

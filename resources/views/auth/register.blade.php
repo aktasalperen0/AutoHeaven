@@ -1,8 +1,8 @@
 @extends("front.layouts.app")
 
 @section("content")
-    <div class="page-heading">
-        <div class="container">
+    <div class="page-heading p-5">
+        <div class="container p-5 mt-5">
             <div class="row">
                 <div class="col-6 offset-3 p-5" style="background-color: #232323">
                     <form method="POST" action="{{ route('register') }}">
@@ -10,11 +10,11 @@
                         <h2>Hesap Oluştur</h2>
 
                         @if($errors->any())
-                                <ul class="mt-5" style="list-style-type: disc; text-align: left">
-                                    @foreach($errors->all() as $error)
-                                        <li style="color: #a4c639">{{$error}}</li>
-                                    @endforeach
-                                </ul>
+                            <ul class="mt-5" style="list-style-type: disc; text-align: left">
+                                @foreach($errors->all() as $error)
+                                    <li style="color: #a4c639">{{$error}}</li>
+                                @endforeach
+                            </ul>
                         @endif
 
                         <div class="input-group mt-5">
