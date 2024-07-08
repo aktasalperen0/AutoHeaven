@@ -10,10 +10,9 @@ class MediaGallery extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $table = 'car_brands';
+    protected $table = 'media_gallery';
 
     public function getCars(){
         return $this->belongsTo(Car::class,'car_id','id');
-
     }
 }

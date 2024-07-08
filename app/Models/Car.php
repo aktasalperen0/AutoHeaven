@@ -12,15 +12,19 @@ class Car extends Model
 
     protected $table ='cars';
 
-
-
     public function getUsers(){
         return $this->belongsTo(User::class,'user_id','id');
     }
 
-    public function getGallery(){
+    public function getGalleries(){
         return $this->hasMany(MediaGallery::class,'car_id','id');
     }
 
+    public function getModels(){
+        return $this->belongsTo(CarModel::class,'model_id','id');
+    }
 
+    public function getDamages(){
+        return $this->belongsTo(CarDamage::class,'damage_id','id');
+    }
 }

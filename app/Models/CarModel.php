@@ -12,8 +12,11 @@ class CarModel extends Model
 
     protected $table = 'car_models';
 
-    public function getBrand(){
+    public function getBrands(){
         return $this->belongsTo(CarBrand::class,'brand_id','id');
+    }
 
+    public function getCars(){
+        return $this->hasMany(Car::class,'model_id','id');
     }
 }

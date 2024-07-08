@@ -27,11 +27,8 @@ return new class extends Migration
             $table->unsignedInteger('fiyat');
             $table->text('description')->nullable();
 
-
-
             $table->softDeletes();
             $table->timestamps();
-
 
             $table->foreign('user_id')
             ->on('users')
@@ -43,11 +40,10 @@ return new class extends Migration
                 ->references('id')
                 ->onDelete('cascade');
 
-
-            /*$table->foreign('damage_id')
+            $table->foreign('damage_id')
             ->on('car_damages')
                 ->references('id')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
 
         });
     }
