@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DealerController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Middleware\isAdmin;
 use Illuminate\Support\Facades\Route;
@@ -38,9 +39,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     //Dealer Routes
 
-    Route::get('/dashboard', function () {
-        return view('front.profile');
-    })->name('dashboard');
+    Route::get('/profile', [DealerController::class, "profilePage"])->name('profile');
+
+    Route::get("/sellCar", [DealerController::class, "sellCarPage"])->name("sellCar");
 
     //End Dealer Routes
 

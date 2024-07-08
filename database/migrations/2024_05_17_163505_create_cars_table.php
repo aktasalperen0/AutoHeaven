@@ -25,7 +25,8 @@ return new class extends Migration
             $table->datetime('announcement_date');
             $table->tinyInteger('status')->comment('0-Passive 1-Active 2-Sold');
             $table->unsignedInteger('price');
-            $table->text('description')->nullable();
+            $table->text("title");
+            $table->text('description');
 
             $table->softDeletes();
             $table->timestamps();

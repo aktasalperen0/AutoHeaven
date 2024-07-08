@@ -23,11 +23,11 @@ class VisitorController extends Controller
     }
 
     public function blogDetailsPage(){
-        return view("front.blog-detail");
+        return view("front.blog-details");
     }
 
     public function carDetailsPage(){
-        return view("front.car-detail");
+        return view("front.car-details");
     }
 
     public function carsPage(){

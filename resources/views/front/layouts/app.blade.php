@@ -105,7 +105,7 @@
                                 <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
 
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{route("dashboard")}}">Profil</a>
+                                    <a class="dropdown-item" href="{{route("profile")}}">Profil</a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Çıkış Yap</a>
