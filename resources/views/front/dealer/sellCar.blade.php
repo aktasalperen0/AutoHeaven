@@ -140,7 +140,10 @@
                     <div class="row">
                         <div class="col-12">
                             <span class="h4 px-3">Araç Fiyatı</span>
-                            <input name="price" type="text" class="form-control border-0 mt-3 p-3"  style="border-radius: 25px" id="price" placeholder="Fiyat giriniz" required>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control mt-3 border-0 p-3" placeholder="Fiyat Giriniz" aria-label="Amount (to the nearest dollar)" style="border-radius: 25px" required>
+                                <span class="input-group-text border-0 mt-3" style="border-radius: 25px">₺</span>
+                            </div>
                         </div>
                     </div>
                 </div>
