@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DealerController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Middleware\isAdmin;
@@ -51,8 +52,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::group(["prefix" => "admin", "middleware" => [isAdmin::class]], function (){
 
+        Route::get("/addBrandModel", [AdminController::class, "addBrandModelPage"])->name("addBrandModel");
 
-
+        Route::post("/addBrandModelPost", [AdminController::class, "addBrandModel"])->name("addBrandModelPost");
     });
 
     //End Admin Routes
