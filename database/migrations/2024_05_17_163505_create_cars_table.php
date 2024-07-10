@@ -14,19 +14,18 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('model_id');
-            $table->unsignedBigInteger('damage_id');
-            $table->unsignedInteger('year');
-            $table->string('color');
-            $table->unsignedInteger('km');
-            $table->boolean('guarentee_status')->default(0);
-            $table->tinyInteger('gear_type')->comment('0-Manuel 1-Automatic 2-Semiautomatic');
-            $table->tinyInteger('fuel_type')->comment('0-Diesel 1-LPG 2-Gasoline');
-            $table->datetime('announcement_date');
-            $table->tinyInteger('status')->comment('0-Passive 1-Active 2-Sold');
-            $table->unsignedInteger('price');
             $table->text("title");
             $table->text('description');
+            $table->unsignedBigInteger('model_id');
+            $table->date('year');
+            $table->tinyInteger('color');
+            $table->unsignedInteger('km');
+            $table->tinyInteger('guarantee');
+            $table->tinyInteger('gear_type')->comment('1-Manuel 2-Automatic 3-Semiautomatic');
+            $table->tinyInteger('fuel_type')->comment('1-Gasoline 2-Diesel 3-LPG 4-Electric');
+            $table->unsignedBigInteger('damage_id');
+            $table->unsignedInteger('price');
+            $table->string("media");
 
             $table->softDeletes();
             $table->timestamps();

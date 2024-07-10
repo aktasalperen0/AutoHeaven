@@ -16,10 +16,6 @@ class Car extends Model
         return $this->belongsTo(User::class,'user_id','id');
     }
 
-    public function getGalleries(){
-        return $this->hasMany(MediaGallery::class,'car_id','id');
-    }
-
     public function getModels(){
         return $this->belongsTo(CarModel::class,'model_id','id');
     }

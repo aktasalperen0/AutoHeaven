@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('car_damages', function (Blueprint $table) {
             $table->id();
-            $table->date("damage_date");
-            $table->text("description");
-
+            $table->text("description")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
