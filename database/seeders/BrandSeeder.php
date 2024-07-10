@@ -16,12 +16,12 @@ class BrandSeeder extends Seeder
         $brands = [
             ["name" => "Renault"],
             ["name" => "Fiat"],
-            ["name" => "Wolkswagen"],
+            ["name" => "Volkswagen"],
             ["name" => "Opel"],
             ["name" => "Hyundai"],
             ["name" => "Ford"],
-            ["name" => "Toyoa"],
-            ["name" => "Peugeout"],
+            ["name" => "Toyota"],
+            ["name" => "Peugeot"],
             ["name" => "Honda"],
             ["name" => "Volvo"],
         ];
