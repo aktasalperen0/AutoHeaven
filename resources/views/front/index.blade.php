@@ -83,7 +83,7 @@
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="{{route("car-details")}}" class="filled-button">İncele</a>
+                            <a href="#" class="filled-button">İncele</a>
                         </div>
                     </div>
 
@@ -104,7 +104,7 @@
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="{{route("car-details")}}" class="filled-button">İncele</a>
+                            <a href="#" class="filled-button">İncele</a>
                         </div>
                     </div>
 
@@ -125,7 +125,7 @@
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
-                            <a href="{{route("car-details")}}" class="filled-button">İncele</a>
+                            <a href="#" class="filled-button">İncele</a>
                         </div>
                     </div>
 

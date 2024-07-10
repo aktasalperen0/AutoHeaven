@@ -167,12 +167,12 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Ad Soyad" required="">
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Ad Soyad" required="" autocomplete="off">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail" required="">
+                                    <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail" required="" autocomplete="off">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
