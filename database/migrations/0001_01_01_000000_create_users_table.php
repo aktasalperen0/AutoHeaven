@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("surname");
             $table->tinyInteger("role")->comment("0-Admin, 1-Dealer")->default(1);
             $table->string('email')->unique();
+            $table->string("phone")->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

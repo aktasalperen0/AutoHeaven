@@ -1,5 +1,12 @@
 @extends("front.layouts.app")
 
+<style>
+    input::placeholder {
+        color: #aaa !important;
+        opacity: 1;
+    }
+</style>
+
 @section("content")
     <div class="page-heading p-5">
         <div class="container p-5 mt-5">
@@ -18,23 +25,27 @@
                         @endif
 
                         <div class="input-group mt-5">
-                            <input type="text" class="form-control rounded-0 bg-dark text-light" placeholder="Ad" name="name" autocomplete="off">
+                            <input type="text" class="form-control border-0 p-3 shadow-none" placeholder="Ad" name="name" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">
-                            <input type="text" class="form-control rounded-0 bg-dark text-light" placeholder="Soyad" name="surname" autocomplete="off">
+                            <input type="text" class="form-control border-0 p-3 shadow-none" placeholder="Soyad" name="surname" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">
-                            <input type="email" class="form-control rounded-0 bg-dark text-light" placeholder="E-Posta" name="email" autocomplete="off">
+                            <input type="email" class="form-control border-0 p-3 shadow-none" placeholder="E-Posta" name="email" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">
-                            <input type="password" class="form-control rounded-0 bg-dark text-light" placeholder="Parola" name="password">
+                            <input type="tel" class="form-control border-0 p-3 shadow-none" placeholder="Telefon" name="phone" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">
-                            <input type="password" class="form-control rounded-0 bg-dark text-light" placeholder="Parola Onayı" name="password_confirmation">
+                            <input type="password" class="form-control border-0 p-3 shadow-none" placeholder="Parola" name="password" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
+                        </div>
+
+                        <div class="input-group mt-3">
+                            <input type="password" class="form-control border-0 p-3 shadow-none" placeholder="Parola Onayı" name="password_confirmation" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="mt-2">
@@ -42,7 +53,7 @@
                         </div>
 
                         <div class="mt-5 pt-5">
-                            <button type="submit" class="btn text-light rounded-0 px-5 py-3" style="background-color: #a4c639">Hesap Oluştur</button>
+                            <button type="submit" class="btn text-light px-5 py-3" style="background-color: #a4c639; border-radius: 25px">Hesap Oluştur</button>
                         </div>
                     </form>
                 </div>

@@ -1,5 +1,12 @@
 @extends("front.layouts.app")
 
+<style>
+    input::placeholder {
+        color: #aaa !important;
+        opacity: 1;
+    }
+</style>
+
 @section("content")
     <div class="page-heading p-5">
         <div class="container p-5 mt-5">
@@ -18,19 +25,20 @@
                         @endif
 
                         <div class="input-group mt-5">
-                            <input type="email" class="form-control rounded-0 bg-dark text-light" placeholder="E-Posta" name="email" autocomplete="off">
+                            <input type="email" class="form-control border-0 shadow-none p-3" placeholder="E-Posta" name="email" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">
-                            <input type="password" class="form-control rounded-0 bg-dark text-light" placeholder="Parola" name="password">
+                            <input type="password" class="form-control border-0 shadow-none p-3" placeholder="Parola" name="password" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
+
 
                         <div class="mt-2">
                             <p class="float-left">Hesabınız yok mu? <a href="{{route("register")}}" style="color: #a4c639">Hesap Oluşturun</a></p>
                         </div>
 
                         <div class="mt-5 pt-5">
-                            <button type="submit" class="btn text-light rounded-0 px-5 py-3" style="background-color: #a4c639">Giriş Yap</button>
+                            <button type="submit" class="btn text-light px-5 py-3" style="background-color: #a4c639; border-radius: 25px">Giriş Yap</button>
                         </div>
                     </form>
                 </div>
