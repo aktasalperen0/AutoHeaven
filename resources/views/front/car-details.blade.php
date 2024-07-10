@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1><sup>$</sup>11779</h1>
+                    <h1><sup>$</sup>{{$car->price}}</h1>
                     <span>
                 En Uygun Fiyatlar Burada!
             </span>
@@ -20,52 +20,8 @@
             <div class="row">
                 <div class="col-md-7">
                     <div>
-                        <img src="{{asset("assets/images/product-1-720x480.jpg")}}" alt="" class="img-fluid wc-image">
+                        <img src="{{ asset('assets/images/'.$car->media) }}" alt="" class="img-fluid wc-image">
                     </div>
-
-                    <br>
-
-                    <div class="row">
-                        <div class="col-sm-4 col-6">
-                            <div>
-                                <img src="{{asset("assets/images/product-1-720x480.jpg")}}" alt="" class="img-fluid">
-                            </div>
-                            <br>
-                        </div>
-                        <div class="col-sm-4 col-6">
-                            <div>
-                                <img src="{{asset("assets/images/product-2-720x480.jpg")}}" alt="" class="img-fluid">
-                            </div>
-                            <br>
-                        </div>
-                        <div class="col-sm-4 col-6">
-                            <div>
-                                <img src="{{asset("assets/images/product-3-720x480.jpg")}}" alt="" class="img-fluid">
-                            </div>
-                            <br>
-                        </div>
-
-                        <div class="col-sm-4 col-6">
-                            <div>
-                                <img src="{{asset("assets/images/product-4-720x480.jpg")}}" alt="" class="img-fluid">
-                            </div>
-                            <br>
-                        </div>
-                        <div class="col-sm-4 col-6">
-                            <div>
-                                <img src="{{asset("assets/images/product-5-720x480.jpg")}}" alt="" class="img-fluid">
-                            </div>
-                            <br>
-                        </div>
-                        <div class="col-sm-4 col-6">
-                            <div>
-                                <img src="{{asset("assets/images/product-6-720x480.jpg")}}" alt="" class="img-fluid">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-
-                    <br>
                 </div>
 
                 <div class="col-md-5">
@@ -74,17 +30,17 @@
 
                             <li class="list-group-item">
                                 <div class="clearfix">
-                                    <span class="pull-left">Model</span>
+                                    <span class="pull-left">Marka</span>
 
-                                    <strong class="pull-right">Lorem ipsum dolor sit</strong>
+                                    <strong class="pull-right">{{$car->getModels->getBrands->name}}</strong>
                                 </div>
                             </li>
 
                             <li class="list-group-item">
                                 <div class="clearfix">
-                                    <span class="pull-left">Hasar</span>
+                                    <span class="pull-left">Model</span>
 
-                                    <strong class="pull-right">Lorem ipsum dolor sit</strong>
+                                    <strong class="pull-right">{{$car->getModels->name}}</strong>
                                 </div>
                             </li>
 
@@ -92,7 +48,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Yıl</span>
 
-                                    <strong class="pull-right">05/2010</strong>
+                                    <strong class="pull-right">{{$car->year}}</strong>
                                 </div>
                             </li>
 
@@ -100,7 +56,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Renk</span>
 
-                                    <strong class="pull-right">Black</strong>
+                                    <strong class="pull-right">{{$selectBoxValues[0]}}</strong>
                                 </div>
                             </li>
 
@@ -108,7 +64,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Kilometre</span>
 
-                                    <strong class="pull-right">50000</strong>
+                                    <strong class="pull-right">{{$car->km}}</strong>
                                 </div>
                             </li>
 
@@ -116,7 +72,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Garanti</span>
 
-                                    <strong class="pull-right">Var</strong>
+                                    <strong class="pull-right">{{$selectBoxValues[1]}}</strong>
                                 </div>
                             </li>
 
@@ -124,7 +80,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Vites Türü</span>
 
-                                    <strong class="pull-right">Manuel</strong>
+                                    <strong class="pull-right">{{$selectBoxValues[2]}}</strong>
                                 </div>
                             </li>
 
@@ -132,15 +88,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Yakıt Türü</span>
 
-                                    <strong class="pull-right">Benzin</strong>
-                                </div>
-                            </li>
-
-                            <li class="list-group-item">
-                                <div class="clearfix">
-                                    <span class="pull-left">İlan Tarihi</span>
-
-                                    <strong class="pull-right">05/2010</strong>
+                                    <strong class="pull-right">{{$selectBoxValues[3]}}</strong>
                                 </div>
                             </li>
 
@@ -148,7 +96,7 @@
                                 <div class="clearfix">
                                     <span class="pull-left">Fiyat</span>
 
-                                    <strong class="pull-right">500000</strong>
+                                    <strong class="pull-right">{{$car->price}}₺</strong>
                                 </div>
                             </li>
 
@@ -163,12 +111,23 @@
 
             <div class="row">
                 <div class="col-md-8">
-                    <div class="tabs-content">
-                        <h4>Araç Açıklaması</h4>
-
-                        <p>Lorem ipsum dolor sit amet.</p>
-
-                        <br>
+                    <div class="row">
+                        <div class="tabs-content">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2>{{$car->title}}</h2>
+                                    <p>{{$car->description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabs-content mt-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h4>Hasar Açıklaması</h4>
+                                    <p>{{$car->getDamages->description}}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -182,7 +141,7 @@
 
                             <br>
 
-                            <strong>John Smith</strong>
+                            <strong>{{$user->name." ".$user->surname}}</strong>
                         </p>
 
                         <p>
@@ -191,7 +150,7 @@
                             <br>
 
                             <strong>
-                                <a href="tel:123-456-789">123-456-789</a>
+                                <a href="tel:{{$user->phone}}">{{$user->phone}}</a>
                             </strong>
                         </p>
 
@@ -201,7 +160,7 @@
                             <br>
 
                             <strong>
-                                <a href="mailto:john@carsales.com">john@carsales.com</a>
+                                <a href="mailto:{{$user->email}}">{{$user->email}}</a>
                             </strong>
                         </p>
                     </div>

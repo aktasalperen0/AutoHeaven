@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
+use App\Models\MediaGallery;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VisitorController extends Controller
 {
@@ -26,8 +30,19 @@ class VisitorController extends Controller
         return view("front.blog-details");
     }
 
-    public function carDetailsPage(){
-        return view("front.car-details");
+    public function carDetailsPage($id){
+
+        $car = Car::find($id);
+        $user = User::find(Auth::id());
+
+        $colors = [ " ", "Beyaz", "Siyah", "Gri", "Gümüş", "Mavi", "Kırmızı", "Diğer"];
+        $guarantee = [" ","Var", "Yok"];
+        $gearType = [" ", "Manuel", "Otomatik", "Yarı-Otomatik"];
+        $fuelType = [" ", "Benzin", "Dizel", "LPG", "Elektrik"];
+
+        $selectBoxValues = [$colors[$car->color], $guarantee[$car->guarantee], $gearType[$car->gear_type], $fuelType[$car->fuel_type]];
+
+        return view("front.car-details", compact("car","user","selectBoxValues"));
     }
 
     public function carsPage(){

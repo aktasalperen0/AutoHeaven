@@ -18,7 +18,7 @@ Route::get("/blog", [VisitorController::class, "blogPage"])->name("blog");
 
 Route::get("/blog-details", [VisitorController::class, "blogDetailsPage"])->name("blog-details");
 
-Route::get("/car-details", [VisitorController::class, "carDetailsPage"])->name("car-details");
+Route::get("/car-details/{id}", [VisitorController::class, "carDetailsPage"])->name("car-details");
 
 Route::get("/cars", [VisitorController::class, "carsPage"])->name("cars");
 
@@ -43,6 +43,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/profile', [DealerController::class, "profilePage"])->name('profile');
 
     Route::get("/sellCar", [DealerController::class, "sellCarPage"])->name("sellCar");
+
+    Route::get("/sellCarModelFilter/{id}", [DealerController::class, "sellCarModelFilter"])->name("sellCarModelFilter");
+
+    Route::get("sellCarMedia", [DealerController::class, "SellCarMedia"])->name("sellCarMedia");
+
+    Route::post("/sellCarPost", [DealerController::class, "sellCar"])->name("sellCarPost");
 
     //End Dealer Routes
 
