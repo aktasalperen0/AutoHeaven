@@ -18,21 +18,27 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="team-item">
-                        <img src="{{asset("assets/images/team-image-1-646x680.jpg")}}" alt="">
+                        @if($user->profile_photo_path == null)
+                            <img src="{{asset("assets/images/anonymous.png")}}">
+                        @else
+                            <img src="{{ asset('assets/images/'.$user->profile_photo_path) }}">
+                        @endif
                         <div class="down-content">
-                            <h4>Alperen Aktaş</h4>
-                            <span>Junior Web Developer</span>
-                            <p>Merhaba, ben Alperen. Yeniliklere ve öğrenmeye açığım. Takım çalışmasına ve projelerde yer almaya hazırım!</p>
-                            <p>
-                                <a href="#"><span><i class="fa fa-linkedin"></i></span></a>
-                            </p>
+                            <h4>{{$user->name." ".$user->surname}}</h4>
+                            <span>{{$user->job}}</span>
+                            @if($user->bio == null)
+                                <p>Merhaba, ben {{$user->name}}!</p>
+                            @else
+                                <p>{{$user->bio}}</p>
+                            @endif
                             <h4 class="mt-5">Telefon</h4>
-                            <strong><a href="tel:123-456-789">123-456-789</a></strong>
+                            <strong><a href="tel:{{$user->phone}}">{{$user->phone}}</a></strong>
                             <h4 class="mt-3">Email</h4>
-                            <strong><a href="mailto:john@carsales.com">john@carsales.com</a></strong>
+                            <strong><a href="mailto:{{$user->email}}">{{$user->email}}</a></strong>
                             <div class="text-center">
                                 <a href="{{route("sellCar")}}" class="filled-button mt-5">Araba Sat</a>
                                 <a href="#" class="filled-button mt-5">Blog Yaz</a>
+                                <a href="{{route("editProfile")}}" class="filled-button mt-2">Profili Düzenle</a>
                                 @if(\Illuminate\Support\Facades\Auth::user()->role == 0)
                                     <a href="{{route("addBrandModel")}}" class="filled-button mt-2">Araba Marka/Model Ekle</a>
                                 @endif
@@ -44,35 +50,23 @@
                     <h2>Arabaların</h2>
                     <div class="row mt-5">
                         <div class="col-md-12 owl-testimonials owl-carousel">
-                            <div class="service-item">
-                                <img src="http://127.0.0.1:8000/assets/images/product-1-720x480.jpg" alt="">
-                                <p class="mt-2">Araba 1</p>
-                                <div>
+                            @foreach($cars as $car)
+                                <div class="service-item">
+                                    <img src="{{ asset('assets/images/'.$car->media) }}" alt="">
+                                    <p class="mt-2">{{$car->title}}</p>
+                                    <div>
                                     <span>
-                                        <sup>$</sup>11779
+                                        <sup>₺</sup>{{$car->price}}
                                     </span>
-                                </div>
-
-                                <p>
-                                    <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                    <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                                </p>
-                                <a href="http://127.0.0.1:8000/car-details" class="filled-button mt-3">İncele</a>
-                            </div>
-                            <div class="service-item">
-                                <img src="http://127.0.0.1:8000/assets/images/product-2-720x480.jpg" alt="">
-                                    <p>Araba 2</p>
-                                    <div style="margin-bottom:10px;">
-                                        <span>
-                                            <sup>$</sup>11779
-                                        </span>
                                     </div>
+
                                     <p>
-                                        <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                        <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
+                                        <i class="fa fa-dashboard"></i> {{$car->km}}km &nbsp;&nbsp;&nbsp;
+                                        <i class="fa fa-cog"></i> {{$gearTypes[$car->gear_type]}} &nbsp;&nbsp;&nbsp;
                                     </p>
-                                    <a href="http://127.0.0.1:8000/car-details" class="filled-button mt-3">İncele</a>
-                            </div>
+                                    <a href="http://127.0.0.1:8000/car-details/{{$car->id}}" class="filled-button mt-3">İncele</a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 

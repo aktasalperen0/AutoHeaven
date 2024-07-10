@@ -16,8 +16,72 @@ class DealerController extends Controller
     public function profilePage(){
         $user = User::find(Auth::id());
 
-        return view('front.dealer.profile',compact("user"));
+        $cars = Car::where('user_id', Auth::id())->get();
+
+        $gearTypes = ["", "Manuel", "Otomatik", "Yarı-Otomatik"];
+
+        return view('front.dealer.profile',compact("user","cars", "gearTypes"));
     }
+
+    public function editProfilePage()
+    {
+        $user = User::find(Auth::id());
+
+        return view('front.dealer.editProfile', compact("user"));
+    }
+
+    public function editProfile(Request $request){
+
+        $request->validate([
+            "name" => "required | min:1 | max:20",
+            "surname" => "required | min:1 | max:20",
+            "email" => "required | min:9 | max:50",
+            "password" => "required | min:8 | max:20",
+            "phone" => "required | min:10 | max:13",
+            "job" => "max:20",
+            "bio" => "max:200"
+        ],[
+            "name.required" => "Lütfen isim giriniz!",
+            "name.min" => "İsim minimum 1 haneli olabilir!",
+            "name.max" => "İsim maksimum 20 haneli olabilir!",
+            "surname.required" => "Lütfen soyad giriniz!",
+            "surname.min" => "Soyad minimum 1 haneli olabilir!",
+            "surname.max" => "Soyad maksimum 20 haneli olabilir!",
+            "email.required" => "Lütfen e-posta giriniz!",
+            "email.min" => "E-posta minimum 9 haneli olabilir!",
+            "email.max" => "E-posta maksimum 50 haneli olabilir!",
+            "password.required" => "Lütfen parola giriniz!",
+            "password.min" => "Parola minimum 8 haneli olabilir!",
+            "password.max" => "Parola maksimum 20 haneli olabilir!",
+            "phone.required" => "Lütfen telefon numarası giriniz!",
+            "phone.min" => "Telefon numarası minimum 10 haneli olabilir!",
+            "phone.max" => "Telefon numarası maksimum 13 haneli olabilir!",
+            "job.max" => "İş maksimum 20 haneli olabilir!",
+            "bio.max" => "Biyografi maksimum 200 haneli olabilir!",
+        ]);
+
+        $editUser = User::find(Auth::id());
+        $editUser->name = $request->input("name");
+        $editUser->surname = $request->input("surname");
+        $editUser->email = $request->input("email");
+        $editUser->password = $request->input("password");
+        $editUser->phone = $request->input("phone");
+        $editUser->job = $request->input("job");
+        $editUser->bio = $request->input("bio");
+
+        if($request->hasFile("photo")){
+            $path = public_path("/assets/images");
+            $file = $request->file("photo");
+            $name = $file->getClientOriginalName();
+            $file->move($path,$name);
+            $editUser->profile_photo_path = $name;
+        }
+
+        $editUser->save();
+
+        return redirect("/profile")->with("success", "Profil başarıyla güncellendi, lütfen tekrar giriş yapın.");
+    }
+
     public function sellCarPage(){
         $carBrands = CarBrand::all();
         $carModels = CarModel::all();
@@ -98,6 +162,6 @@ class DealerController extends Controller
 
         $car->save();
 
-        return redirect()->back()->with("success", "Arabanız başarıyla yayınlandı.");
+        return redirect("/profile")->with("success", "Arabanız başarıyla yayınlandı.");
     }
 }

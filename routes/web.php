@@ -42,11 +42,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::get('/profile', [DealerController::class, "profilePage"])->name('profile');
 
+    Route::get("/editProfile", [DealerController::class, "editProfilePage"])->name('editProfile');
+
+    Route::post("/editProfilePost", [DealerController::class, "editProfile"])->name('editProfilePost');
+
     Route::get("/sellCar", [DealerController::class, "sellCarPage"])->name("sellCar");
 
     Route::get("/sellCarModelFilter/{id}", [DealerController::class, "sellCarModelFilter"])->name("sellCarModelFilter");
-
-    Route::get("sellCarMedia", [DealerController::class, "SellCarMedia"])->name("sellCarMedia");
 
     Route::post("/sellCarPost", [DealerController::class, "sellCar"])->name("sellCarPost");
 
