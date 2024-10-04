@@ -68,69 +68,31 @@
                         <span>En Popüler Araçlarımızı Keşfedin!</span>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="service-item">
-                        <img src="{{asset("assets/images/product-1-720x480.jpg")}}" alt="">
-                        <div class="down-content">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <div style="margin-bottom:10px;">
-                  <span>
-                      <sup>$</sup>11779
-                  </span>
+                @for($i = 0; $i < 3; $i++)
+                    <div class="col-md-4">
+                        <div class="service-item">
+                            @if($cars[$i]->media == null)
+                                <img src="{{ asset('assets/images/no-car.jpg') }}" alt="">
+                            @else
+                                <img src="{{ asset('assets/images/'.$cars[$i]->media) }}" alt="">
+                            @endif
+                            <div class="down-content">
+                                <h4>{{$cars[$i]->title}}</h4>
+                                <div style="margin-bottom:10px;">
+                                  <span>
+                                      <sup>₺</sup>{{$cars[$i]->price}}
+                                  </span>
+                                </div>
+                                <p>
+                                    <i class="fa fa-dashboard"></i> {{$cars[$i]->km}} &nbsp;&nbsp;&nbsp;
+                                    <i class="fa fa-cog"></i> {{$gearTypes[$cars[$i]->gear_type]}}
+                                </p>
+                                <a href="car-details/{{$cars[$i]->id}}" class="filled-button">İncele</a>
                             </div>
-
-                            <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                            </p>
-                            <a href="#" class="filled-button">İncele</a>
                         </div>
+                        <br>
                     </div>
-
-                    <br>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-item">
-                        <img src="{{asset("assets/images/product-2-720x480.jpg")}}" alt="">
-                        <div class="down-content">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <div style="margin-bottom:10px;">
-                  <span>
-                     <sup>$</sup>11779
-                  </span>
-                            </div>
-
-                            <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                            </p>
-                            <a href="#" class="filled-button">İncele</a>
-                        </div>
-                    </div>
-
-                    <br>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-item">
-                        <img src="{{asset("assets/images/product-3-720x480.jpg")}}" alt="">
-                        <div class="down-content">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <div style="margin-bottom:10px;">
-                  <span>
-                      <sup>$</sup>11779
-                  </span>
-                            </div>
-
-                            <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                            </p>
-                            <a href="#" class="filled-button">İncele</a>
-                        </div>
-                    </div>
-
-                    <br>
-                </div>
+                @endfor
             </div>
         </div>
     </div>

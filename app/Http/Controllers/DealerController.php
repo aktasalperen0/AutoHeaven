@@ -6,37 +6,35 @@ use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarDamage;
 use App\Models\CarModel;
-use App\Models\MediaGallery;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DealerController extends Controller
 {
-    public function profilePage(){
+    public function myProfilePage(){
         $user = User::find(Auth::id());
 
         $cars = Car::where('user_id', Auth::id())->get();
 
         $gearTypes = ["", "Manuel", "Otomatik", "Yarı-Otomatik"];
 
-        return view('front.dealer.profile',compact("user","cars", "gearTypes"));
+        return view('front.dealer.myProfile',compact("user","cars", "gearTypes"));
     }
 
-    public function editProfilePage()
+    public function editMyProfilePage()
     {
         $user = User::find(Auth::id());
 
-        return view('front.dealer.editProfile', compact("user"));
+        return view('front.dealer.editMyProfile', compact("user"));
     }
 
-    public function editProfile(Request $request){
+    public function editMyProfile(Request $request){
 
         $request->validate([
             "name" => "required | min:1 | max:20",
             "surname" => "required | min:1 | max:20",
             "email" => "required | min:9 | max:50",
-            "password" => "required | min:8 | max:20",
             "phone" => "required | min:10 | max:13",
             "job" => "max:20",
             "bio" => "max:200"
@@ -50,9 +48,6 @@ class DealerController extends Controller
             "email.required" => "Lütfen e-posta giriniz!",
             "email.min" => "E-posta minimum 9 haneli olabilir!",
             "email.max" => "E-posta maksimum 50 haneli olabilir!",
-            "password.required" => "Lütfen parola giriniz!",
-            "password.min" => "Parola minimum 8 haneli olabilir!",
-            "password.max" => "Parola maksimum 20 haneli olabilir!",
             "phone.required" => "Lütfen telefon numarası giriniz!",
             "phone.min" => "Telefon numarası minimum 10 haneli olabilir!",
             "phone.max" => "Telefon numarası maksimum 13 haneli olabilir!",
@@ -64,7 +59,16 @@ class DealerController extends Controller
         $editUser->name = $request->input("name");
         $editUser->surname = $request->input("surname");
         $editUser->email = $request->input("email");
-        $editUser->password = $request->input("password");
+        if($request->input("password") != null){
+            $request->validate([
+                "password" => "min:8 | max:20",
+            ],[
+                "password.min" => "Parola minimum 8 haneli olabilir!",
+                "password.max" => "Parola maksimum 20 haneli olabilir!",
+            ]);
+
+            $editUser->password = $request->input("password");
+        }
         $editUser->phone = $request->input("phone");
         $editUser->job = $request->input("job");
         $editUser->bio = $request->input("bio");
@@ -79,7 +83,20 @@ class DealerController extends Controller
 
         $editUser->save();
 
-        return redirect("/profile")->with("success", "Profil başarıyla güncellendi, lütfen tekrar giriş yapın.");
+        return redirect("/myProfile")->with("success", "Profil başarıyla güncellendi.");
+    }
+
+    public function deleteMyProfilePhoto(Request $request){
+        $user = User::find($request->user_id);
+
+        if($user){
+            $user->profile_photo_path = null;
+            $user->save();
+
+            return response()->json(['success' => true, 'redirect' => route('myProfile')]);
+        }
+
+        return response()->json(['success' => false]);
     }
 
     public function sellCarPage(){
@@ -131,7 +148,7 @@ class DealerController extends Controller
             "damage-description.max" => "Hasar açıklaması maksimum 1000 haneli olabilir!",
             "price.required" => "Lütfen fiyat giriniz!",
             "price.min" => "Fiyat minimum 1000₺ olabilir!",
-            "price.max" => "Fiyat maksimum 100000000!"
+            "price.max" => "Fiyat maksimum 100000000₺ olabilir!"
         ]);
 
         $carDamage = new CarDamage();
@@ -162,6 +179,114 @@ class DealerController extends Controller
 
         $car->save();
 
-        return redirect("/profile")->with("success", "Arabanız başarıyla yayınlandı.");
+        return redirect("/myProfile")->with("success", "Arabanız başarıyla yayınlandı.");
+    }
+
+    public function editCarPage($id){
+
+        $car = Car::find($id);
+
+        if(!$car){
+            abort(404);
+        }
+
+        if ($car->user_id != Auth::id()) {
+            abort(403);
+        }
+
+        $carBrands = CarBrand::all();
+        $carModels = CarModel::all();
+
+        $colors = [ " ", "Beyaz", "Siyah", "Gri", "Gümüş", "Mavi", "Kırmızı", "Diğer"];
+        $guarantee = [" ","Var", "Yok"];
+        $gearType = [" ", "Manuel", "Otomatik", "Yarı-Otomatik"];
+        $fuelType = [" ", "Benzin", "Dizel", "LPG", "Elektrik"];
+
+        $selectBoxValues = [$colors, $guarantee, $gearType, $fuelType];
+
+        return view("front.dealer.editCar", compact("id", "car","carBrands", "carModels", "selectBoxValues"));
+    }
+
+    public function editCar(Request $request, $id){
+
+        $request->validate([
+            "title" => "required | min:5 | max:100",
+            "description" => "required | min:5 | max:1000",
+            "brand" => "required",
+            "model" => "required",
+            "year" => "required | date | before_or_equal:today",
+            "color" => "required",
+            "km" => "required | numeric | min:0 | max:1000000",
+            "guarantee" => "required",
+            "gear" => "required",
+            "fuel" => "required",
+            "damage-description" => "max:1000",
+            "price" => "required | numeric | min:1000 | max: 100000000"
+        ],[
+            "title.required" => "Lütfen başlık giriniz!",
+            "title.min" => "Başlık minimum 5 haneli olabilir!",
+            "title.max" => "Başlık maksimum 100 haneli olabilir!",
+            "description.required" => "Lütfen açıklama giriniz!",
+            "description.min" => "Açıklama minimum 5 haneli olabilir!",
+            "description.max" => "Açıklama maksimum 1000 haneli olabilir!",
+            "brand.required" => "Lütfen marka seçiniz!",
+            "model.required" => "Lütfen model seçiniz!",
+            "year.required" => "Lütfen tarih giriniz!",
+            "year.date" => "Lütfen geçerli bir tarih giriniz!",
+            "year.before_or_equal" => "Lütfen geçerli bir tarih giriniz!",
+            "color.required" => "Lütfen renk seçiniz!",
+            "km.required" => "Lütfen kilometre giriniz!",
+            "km.numeric" => "Lütfen sayısal bir değer giriniz!",
+            "km.min" => "Kilometre minimum 0 olabilir!",
+            "km.max" => "Kilometre maksimum 1000000 olabilir!",
+            "guarantee.required" => "Lütfen garanti seçiniz!",
+            "gear.required" => "Lütfen vites türü seçiniz!",
+            "fuel.required" => "Lütfen yakıt türü seçiniz!",
+            "damage-description.max" => "Hasar açıklaması maksimum 1000 haneli olabilir!",
+            "price.required" => "Lütfen fiyat giriniz!",
+            "price.min" => "Fiyat minimum 1000₺ olabilir!",
+            "price.max" => "Fiyat maksimum 100000000₺ olabilir!"
+        ]);
+
+        $carDamage = CarDamage::find($id);
+        $carDamage->description = $request->input("damage-description");
+        $carDamage->save();
+
+        $car = Car::find($id);
+        $car->title = $request->input("title");
+        $car->description = $request->input("description");
+        $car->model_id = $request->input("model");
+        $car->year = $request->input("year");
+        $car->color = $request->input("color");
+        $car->km = $request->input("km");
+        $car->guarantee = $request->input("guarantee");
+        $car->gear_type = $request->input("gear");
+        $car->fuel_type = $request->input("fuel");
+        $car->damage_id = $carDamage->id;
+        $car->price = $request->input("price");
+
+        if($request->hasFile("media")){
+            $path = public_path("/assets/images");
+            $file = $request->file("media");
+            $name = $file->getClientOriginalName();
+            $file->move($path,$name);
+            $car->media = $name;
+        }
+
+        $car->save();
+
+        return redirect("/myProfile")->with("success", "Arabanız başarıyla güncellendi.");
+    }
+
+    public function deleteCar(Request $request){
+        $carID = $request->input("car_id");
+        $car = Car::find($carID);
+
+        if ($car){
+            $car->delete();
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false]);
     }
 }

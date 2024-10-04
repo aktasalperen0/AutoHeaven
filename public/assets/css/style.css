@@ -41,6 +41,23 @@ a.filled-button:hover {
 	color: #a4c639;
 }
 
+button.filled-button {
+    background-color: #a4c639;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 30px;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+button.filled-button:hover {
+    background-color: #fff;
+    color: #a4c639;
+}
+
 a.border-button {
 	background-color: transparent;
 	color: #fff;
@@ -309,7 +326,7 @@ header .navbar {
 }
 .navbar .navbar-toggler {
 	border-color: #fff;
-	background-color: #fff;	
+	background-color: #fff;
 	height: 36px;
 	outline: none;
 	border-radius: 0px;
@@ -560,6 +577,9 @@ ul.slick-dots {
 
 .service-item img {
 	width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    background-color: #f7f7f7;
 	overflow: hidden;
 }
 
@@ -746,7 +766,7 @@ ul.slick-dots {
 }
 .testimonial-item .inner-content {
 	text-align: center;
-	background-color: #fff;	
+	background-color: #fff;
 	padding: 30px;
 	border-radius: 5px;
 }
@@ -1146,6 +1166,9 @@ footer .contact-form button.filled-button:hover {
 .team-item img {
 	width: 100%;
 	overflow: hidden;
+    height: 400px;
+    object-fit: contain;
+    background-color: #fff;
 }
 
 .team-item .down-content {
@@ -1220,7 +1243,7 @@ footer .contact-form button.filled-button:hover {
   color: #1e1e1e;
 }
 .tabs-content {
-	margin-left: 30px;
+	margin-left: 0;
   text-align: left;
   display: inline-block;
   transition: all 0.3s;
@@ -1233,11 +1256,11 @@ footer .contact-form button.filled-button:hover {
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: 0.25px;
-	margin-bottom: 15px;
+	margin-bottom: 0;
 	margin-top: 30px;
 }
 .tabs-content h4 a {
-	color: inherit;	
+	color: inherit;
 }
 .tabs-content p {
   font-size: 14px;
@@ -1245,7 +1268,7 @@ footer .contact-form button.filled-button:hover {
   margin-bottom: 0px;
 }
 
-.dropdown-item.active, 
+.dropdown-item.active,
 .dropdown-item:active {
 	background-color: #a4c639;
 }
@@ -1400,5 +1423,5 @@ footer .contact-form button.filled-button:hover {
 	}
 }
 
-h5 a { color: #a4c639; } 
-h5 a:hover { color: inherit; } 
+h5 a { color: #a4c639; }
+h5 a:hover { color: inherit; }

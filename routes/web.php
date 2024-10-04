@@ -22,9 +22,13 @@ Route::get("/car-details/{id}", [VisitorController::class, "carDetailsPage"])->n
 
 Route::get("/cars", [VisitorController::class, "carsPage"])->name("cars");
 
+Route::post("/filterCarsPost", [VisitorController::class, "filterCars"])->name("filterCars");
+
 Route::get("/contact", [VisitorController::class, "contactPage"])->name("contact");
 
 Route::get("/faq", [VisitorController::class, "faqPage"])->name("faq");
+
+Route::get("/profile/{id}", [VisitorController::class, "profilePage"])->name("profile");
 
 Route::get("/team", [VisitorController::class, "teamPage"])->name("team");
 
@@ -40,17 +44,25 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     //Dealer Routes
 
-    Route::get('/profile', [DealerController::class, "profilePage"])->name('profile');
+    Route::get('/myProfile', [DealerController::class, "myProfilePage"])->name('myProfile');
 
-    Route::get("/editProfile", [DealerController::class, "editProfilePage"])->name('editProfile');
+    Route::get("/editMyProfile", [DealerController::class, "editMyProfilePage"])->name('editMyProfile');
 
-    Route::post("/editProfilePost", [DealerController::class, "editProfile"])->name('editProfilePost');
+    Route::post("/editMyProfilePost", [DealerController::class, "editMyProfile"])->name('editMyProfilePost');
+
+    Route::post("/deleteMyProfilePhotoPost", [DealerController::class, "deleteMyProfilePhoto"])->name('deleteMyProfilePhoto');
 
     Route::get("/sellCar", [DealerController::class, "sellCarPage"])->name("sellCar");
 
     Route::get("/sellCarModelFilter/{id}", [DealerController::class, "sellCarModelFilter"])->name("sellCarModelFilter");
 
     Route::post("/sellCarPost", [DealerController::class, "sellCar"])->name("sellCarPost");
+
+    Route::get("/editCar/{id}", [DealerController::class, "editCarPage"])->name("editCar");
+
+    Route::post("/editCarPost/{id}", [DealerController::class, "editCar"])->name("editCarPost");
+
+    Route::post("/deleteCar", [DealerController::class, "deleteCar"])->name("deleteCar");
 
     //End Dealer Routes
 

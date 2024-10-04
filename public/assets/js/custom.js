@@ -12,7 +12,7 @@ jQuery( document ).ready(function( $ ) {
             $("#preloader").css("visibility", "hidden").fadeOut();
         }, 300);
     });
-    
+
     $(window).scroll(function() {
       var scroll = $(window).scrollTop();
       var box = $('.header-text').height();
@@ -27,7 +27,7 @@ jQuery( document ).ready(function( $ ) {
 
 	if ($('.owl-testimonials').length) {
         $('.owl-testimonials').owlCarousel({
-            loop: true,
+            loop: false,
             nav: false,
             dots: true,
             items: 1,
@@ -69,6 +69,6 @@ jQuery( document ).ready(function( $ ) {
        // fade:true,
         draggable:false,
         prevArrow:'<button class="PrevArrow"></button>',
-        nextArrow:'<button class="NextArrow"></button>', 
+        nextArrow:'<button class="NextArrow"></button>',
     });
 });

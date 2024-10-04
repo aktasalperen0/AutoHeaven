@@ -53,15 +53,15 @@
         <div class="row">
             <div class="col-md-8 col-xs-12">
                 <ul class="left-info">
-                    <li><a href="#"><i class="fa fa-envelope"></i>autoheaven@company.com</a></li>
-                    <li><a href="#"><i class="fa fa-phone"></i>123-456-7890</a></li>
+                    <li><a href="mailto:autoheaven@company.com"><i class="fa fa-envelope"></i>autoheaven@company.com</a></li>
+                    <li><a href="tel:1234567890"><i class="fa fa-phone"></i>123-456-7890</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <ul class="right-icons">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://x.com/"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -77,17 +77,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
                         <a class="nav-link" href="{{route("index")}}">Ana Sayfa
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ Request::is('cars') ? 'active' : '' }}">
                         <a class="nav-link" href="{{route("cars")}}">Arabalar</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hakkında</a>
-
+                    <li class="nav-item
+                     @if(Request::is("about") || Request::is("blog") || Request::is("team") || Request::is("testimonials") || Request::is("faq") || Request::is("terms"))
+                        active
+                     @endif
+                     dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hakkımızda</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{route("about")}}">Hakkımızda</a>
                             <a class="dropdown-item" href="{{route("blog")}}">Blog</a>
@@ -97,16 +100,16 @@
                             <a class="dropdown-item" href="{{route("terms")}}">Şartlar</a>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
                         <a class="nav-link" href="{{route("contact")}}">Bize Ulaşın</a>
                     </li>
                     @if (Route::has('login'))
                         @auth
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown {{ Request::is('myProfile') ? 'active' : '' }}">
                                 <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
 
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{route("profile")}}">Profil</a>
+                                    <a class="dropdown-item" href="{{route("myProfile")}}">Profil</a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Çıkış Yap</a>
@@ -135,29 +138,29 @@
                 <h4>AutoHeaven</h4>
                 <p>En iyi fiyatlarla güvenilir araçlar sunuyoruz. Kalite ve müşteri memnuniyeti garantisi ile hizmetinizdeyiz.</p>
                 <ul class="social-icons">
-                    <li><a rel="nofollow" href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a rel="nofollow" href="https://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://x.com/"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
             </div>
             <div class="col-md-3 footer-item">
                 <h4>Kullanışlı Bağlantılar</h4>
                 <ul class="menu-list">
-                    <li><a href="#">Ana Sayfa</a></li>
-                    <li><a href="#">Arabalar</a></li>
-                    <li><a href="#">Bize Ulaşın</a></li>
-                    <li><a href="#">Giriş Yap</a></li>
-                    <li><a href="#">Profil</a></li>
+                    <li><a href="{{route("index")}}">Ana Sayfa</a></li>
+                    <li><a href="{{route("cars")}}">Arabalar</a></li>
+                    <li><a href="{{route("contact")}}">Bize Ulaşın</a></li>
+                    <li><a href="{{route("login")}}">Giriş Yap</a></li>
+                    <li><a href="{{route("myProfile")}}">Profil</a></li>
                 </ul>
             </div>
             <div class="col-md-3 footer-item">
                 <h4>Ek Sayfalar</h4>
                 <ul class="menu-list">
-                    <li><a href="#">Hakkımızda</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">SSS</a></li>
-                    <li><a href="#">Takım</a></li>
-                    <li><a href="#">Şartlar</a></li>
+                    <li><a href="{{route("about")}}">Hakkımızda</a></li>
+                    <li><a href="{{route("blog")}}">Blog</a></li>
+                    <li><a href="{{route("faq")}}">SSS</a></li>
+                    <li><a href="{{route("team")}}">Takım</a></li>
+                    <li><a href="{{route("terms")}}">Şartlar</a></li>
                 </ul>
             </div>
             <div class="col-md-3 footer-item last-item">
@@ -225,6 +228,8 @@
         }
     }
 </script>
+
+<script src="https://kit.fontawesome.com/e562692f21.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

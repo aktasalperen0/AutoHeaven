@@ -25,7 +25,7 @@ return new class extends Migration
             $table->tinyInteger('fuel_type')->comment('1-Gasoline 2-Diesel 3-LPG 4-Electric');
             $table->unsignedBigInteger('damage_id');
             $table->unsignedInteger('price');
-            $table->string("media");
+            $table->string("media")->nullable();
 
             $table->softDeletes();
             $table->timestamps();

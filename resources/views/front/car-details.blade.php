@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1><sup>$</sup>{{$car->price}}</h1>
+                    <h1><sup>₺</sup>{{$car->price}}</h1>
                     <span>
                 En Uygun Fiyatlar Burada!
             </span>
@@ -19,9 +19,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <div>
-                        <img src="{{ asset('assets/images/'.$car->media) }}" alt="" class="img-fluid wc-image">
-                    </div>
+                    @if($car->media == null)
+                        <img src="{{ asset('assets/images/no-car.jpg') }}" alt="" class="img-fluid wc-image w-100" style="height: 350px; object-fit: contain;">
+                    @else
+                        <img src="{{ asset('assets/images/'.$car->media) }}" alt="" class="img-fluid wc-image w-100" style="height: 350px; object-fit: contain;">
+                    @endif
                 </div>
 
                 <div class="col-md-5">
@@ -110,7 +112,7 @@
             <br>
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <div class="row">
                         <div class="tabs-content">
                             <div class="row">
@@ -131,17 +133,19 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-5 text-lg-center">
 
                     <div class="tabs-content">
-                        <h4>İletişim Detayları</h4>
+                        <h4 class="mt-0">İletişim Detayları</h4>
 
                         <p>
                             <span>Ad</span>
 
                             <br>
 
-                            <strong>{{$user->name." ".$user->surname}}</strong>
+                            <strong>
+                                <a href="{{ route('profile', ['id' => $user->id]) }}">{{ $user->name }} {{ $user->surname }}</a>
+                            </strong>
                         </p>
 
                         <p>

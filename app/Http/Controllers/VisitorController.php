@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
-use App\Models\MediaGallery;
+use App\Models\CarBrand;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,11 @@ class VisitorController extends Controller
     }
 
     public function indexPage(){
-        return view('front.index');
+        $cars = Car::orderBy("price", "desc")->get();
+
+        $gearTypes = [" ", "Manuel", "Otomatik", "Yarı-Otomatik"];
+
+        return view("front.index", compact("cars", "gearTypes"));
     }
 
     public function aboutPage(){
@@ -33,7 +37,12 @@ class VisitorController extends Controller
     public function carDetailsPage($id){
 
         $car = Car::find($id);
-        $user = User::find(Auth::id());
+
+        if(!$car){
+            abort(404);
+        }
+
+        $user = $car->getUsers;
 
         $colors = [ " ", "Beyaz", "Siyah", "Gri", "Gümüş", "Mavi", "Kırmızı", "Diğer"];
         $guarantee = [" ","Var", "Yok"];
@@ -46,7 +55,75 @@ class VisitorController extends Controller
     }
 
     public function carsPage(){
-        return view("front.cars");
+
+        $cars = Car::paginate(15);
+        $gearTypes = [" ", "Manuel", "Otomatik", "Yarı-Otomatik"];
+
+        $carBrands = CarBrand::all();
+
+        return view("front.cars", compact("cars", "gearTypes", "carBrands"));
+    }
+
+    public function filterCars(Request $request){
+        $carsQuery = Car::with('getModels.getBrands');
+        $gearTypes = [" ", "Manuel", "Otomatik", "Yarı-Otomatik"];
+
+        if ($request->filled('brand') && $request->get('brand') != 0) {
+            $carsQuery->whereHas('getModels.getBrands', function ($query) use ($request) {
+                $query->where('id', $request->brand);
+            });
+        }
+
+        if ($request->filled('color') && $request->color != 0) {
+            $carsQuery->where('color', $request->color);
+        }
+
+        if ($request->filled('yearStart') && $request->yearStart != 0) {
+            $carsQuery->where('year', '>=', $request->yearStart);
+        }
+
+        if ($request->filled('yearEnd') && $request->yearEnd != 0) {
+            $carsQuery->where('year', '<=', $request->yearEnd);
+        }
+
+        if ($request->filled('kmStart') && $request->kmStart != 0) {
+            $carsQuery->where('km', '>=', $request->kmStart);
+        }
+
+        if ($request->filled('kmEnd') && $request->kmEnd != 0) {
+            $carsQuery->where('km', '<=', $request->kmEnd);
+        }
+
+        if ($request->filled('gearType') && $request->gearType != 0) {
+            $carsQuery->where('gear_type', $request->gearType);
+        }
+
+        if ($request->filled('fuelType') && $request->fuelType != 0) {
+            $carsQuery->where('fuel_type', $request->fuelType);
+        }
+
+        if ($request->filled('priceStart') && $request->priceStart != 0) {
+            $carsQuery->where('price', '>=', $request->priceStart);
+        }
+
+        if ($request->filled('priceEnd') && $request->priceEnd != 0) {
+            $carsQuery->where('price', '<=', $request->priceEnd);
+        }
+
+        $cars = $carsQuery->paginate(15);
+
+        return response()->json([
+            'success' => true,
+            'cars' => $cars->items(),
+            'gearTypes' => $gearTypes,
+            'pagination' => [
+                'previousPageUrl' => $cars->previousPageUrl(),
+                'nextPageUrl' => $cars->nextPageUrl(),
+                'lastPage' => $cars->lastPage(),
+                'currentPage' => $cars->currentPage(),
+                'url' => $cars->url(1)
+            ]
+        ]);
     }
 
     public function contactPage(){
@@ -55,6 +132,24 @@ class VisitorController extends Controller
 
     public function faqPage(){
         return view("front.faq");
+    }
+
+    public function profilePage($id){
+        $user = User::find($id);
+
+        if(!$user){
+            abort(404);
+        }
+
+        $cars = Car::where('user_id', $id)->get();
+
+        $gearTypes = ["", "Manuel", "Otomatik", "Yarı-Otomatik"];
+
+        if($id == Auth::id()){
+            return view("front.dealer.myProfile", compact("id", "user", "cars", "gearTypes"));
+        }
+
+        return view("front.profile", compact("id", "user", "cars", "gearTypes"));
     }
 
     public function teamPage(){
