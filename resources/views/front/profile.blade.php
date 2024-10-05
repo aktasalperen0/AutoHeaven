@@ -59,7 +59,7 @@
                                             <i class="fa fa-dashboard"></i> {{$car->km}}km &nbsp;&nbsp;&nbsp;
                                             <i class="fa fa-cog"></i> {{$gearTypes[$car->gear_type]}} &nbsp;&nbsp;&nbsp;
                                         </p>
-                                        <a href="http://127.0.0.1:8000/car-details/{{$car->id}}" class="filled-button mt-3">İncele</a>
+                                        <a href="{{route("car-details", $car)}}" class="filled-button mt-3">İncele</a>
                                     </div>
                                 @endforeach
                             </div>
@@ -68,37 +68,33 @@
                         @endif
                     </div>
 
-                    <h2 class="mt-5">Bloglar</h2>
+                    <h2 class="mt-5">Blogların</h2>
                     <div class="row mt-5">
                         <div class="col-md-12 owl-testimonials owl-carousel">
-                            <section >
-                                <article id="tabs-1">
-                                    <img src="http://127.0.0.1:8000/assets/images/blog-image-1-940x460.jpg" alt="">
-                                    <h4 class="my-3"><a href="http://127.0.0.1:8000/blog-details" class="text-dark">Blog 1</a></h4>
-                                    <div style="margin-bottom:10px;" class="mt-2">
-                                        <span>John Doe &nbsp;|&nbsp; 27.07.2020 10:10 &nbsp;|&nbsp; 15 comments</span>
-                                    </div>
-                                    <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam.</p>
-                                    <br>
-                                    <div>
-                                        <a href="http://127.0.0.1:8000/blog-details" class="filled-button">Okumaya Devam Et</a>
-                                    </div>
-                                </article>
-                            </section>
-                            <section >
-                                <article id="tabs-2">
-                                    <img src="http://127.0.0.1:8000/assets/images/blog-image-2-940x460.jpg" alt="">
-                                    <h4 class="my-3"><a href="http://127.0.0.1:8000/blog-details" class="text-dark">Blog 2</a></h4>
-                                    <div style="margin-bottom:10px;">
-                                        <span>John Doe &nbsp;|&nbsp; 27.07.2020 10:10 &nbsp;|&nbsp; 15 comments</span>
-                                    </div>
-                                    <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam.</p>
-                                    <br>
-                                    <div>
-                                        <a href="http://127.0.0.1:8000/blog-details" class="filled-button">Okumaya Devam Et</a>
-                                    </div>
-                                </article>
-                            </section>
+                            @if($blogs->count() > 0)
+                                @foreach($blogs as $blog)
+                                    <section >
+                                        <article id="tabs-1">
+                                            @if($blog->media == null)
+                                                <img src="{{ asset('assets/images/no-car.jpg') }}" alt="">
+                                            @else
+                                                <img src="{{ asset('assets/images/'.$blog->media) }}" alt="">
+                                            @endif
+                                            <h4 class="my-3"><a href="{{"blog-details", $blog->id}}" class="text-dark">{{$blog->title}}</a></h4>
+                                            <div style="margin-bottom:10px;" class="mt-2">
+                                                <span>{{$blog->getUsers->name}} {{$blog->getUsers->surname}} | {{$blog->updated_at->diffForHumans()}}</span>
+                                            </div>
+                                            <p>{{Str::limit($blog->content, 85)}}</p>
+                                            <br>
+                                            <div>
+                                                <a href="{{route("blog-details", $blog)}}" class="filled-button">Oku</a>
+                                            </div>
+                                        </article>
+                                    </section>
+                                @endforeach
+                            @else
+                                <h2 class="text-center" style="opacity: 25%">Henüz bir blog mevcut değil.</h2>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -43,7 +43,7 @@
                             <strong><a href="mailto:{{$user->email}}">{{$user->email}}</a></strong>
                             <div class="text-center">
                                 <a href="{{route("sellCar")}}" class="filled-button mt-5">Araba Sat</a>
-                                <a href="#" class="filled-button mt-5">Blog Yaz</a>
+                                <a href="{{route("writeBlog")}}" class="filled-button mt-5">Blog Yaz</a>
                                 <a href="{{route("editMyProfile")}}" class="filled-button mt-2">Profili Düzenle</a>
                                 @if(\Illuminate\Support\Facades\Auth::user()->role == 0)
                                     <a href="{{route("addBrandModel")}}" class="filled-button mt-2">Araba Marka/Model Ekle</a>
@@ -74,8 +74,8 @@
                                             <i class="fa fa-dashboard"></i> {{$car->km}}km
                                             <i class="fa fa-cog"></i> {{$gearTypes[$car->gear_type]}}
                                         </p>
-                                        <a href="http://127.0.0.1:8000/car-details/{{$car->id}}" class="filled-button mt-3">İncele</a>
-                                        <a href="http://127.0.0.1:8000/editCar/{{$car->id}}" class="filled-button mt-3">Düzenle</a>
+                                        <a href="{{route("car-details", $car)}}" class="filled-button mt-3">İncele</a>
+                                        <a href="{{route("editCar", $car)}}" class="filled-button mt-3">Düzenle</a>
                                         <button type="button" class="filled-button border-0" data-bs-toggle="modal" data-bs-target="#exampleModal" data-car-id="{{$car->id}}">Sil</button>
                                     </div>
                                 @endforeach
@@ -108,35 +108,54 @@
 
                     <h2 class="mt-5">Blogların</h2>
                     <div class="row mt-5">
-                        <div class="col-md-12 owl-testimonials owl-carousel">
-                            <section >
-                                <article id="tabs-1">
-                                    <img src="http://127.0.0.1:8000/assets/images/blog-image-1-940x460.jpg" alt="">
-                                    <h4 class="my-3"><a href="http://127.0.0.1:8000/blog-details" class="text-dark">Blog 1</a></h4>
-                                    <div style="margin-bottom:10px;" class="mt-2">
-                                        <span>John Doe &nbsp;|&nbsp; 27.07.2020 10:10 &nbsp;|&nbsp; 15 comments</span>
+                        @if($blogs->count() > 0)
+                            <div class="col-md-12 owl-testimonials owl-carousel">
+                                @foreach($blogs as $blog)
+                                    <section >
+                                        <article id="tabs-1">
+                                            @if($blog->media == null)
+                                                <img src="{{ asset('assets/images/no-car.jpg') }}" alt="">
+                                            @else
+                                                <img src="{{ asset('assets/images/'.$blog->media) }}" alt="">
+                                            @endif
+                                            <h4 class="my-3"><a href="{{route("blog-details", $blog)}}" class="text-dark">{{$blog->title}}</a></h4>
+                                            <div style="margin-bottom:10px;" class="mt-2">
+                                                <span>{{$blog->getUsers->name}} {{$blog->getUsers->surname}} | {{$blog->updated_at->diffForHumans()}}</span>
+                                            </div>
+                                            <p>{{Str::limit($blog->content, 85)}}</p>
+                                            <br>
+                                            <div>
+                                                <a href="{{route("blog-details", $blog)}}" class="filled-button">Oku</a>
+                                                <a href="{{route("editBlog", $blog)}}" class="filled-button">Düzenle</a>
+                                                <button type="button" class="filled-button border-0" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-blog-id="{{$blog->id}}">Sil</button>
+                                            </div>
+                                        </article>
+                                    </section>
+                                @endforeach
+                            </div>
+                        @else
+                            <h2 class="text-center" style="opacity: 25%">Henüz bir blog mevcut değil.</h2>
+                        @endif
+                    </div>
+
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <form id="deleteBlogForm" method="post" action="{{ route('deleteBlog') }}">
+                                    @csrf
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel2">Uyarı!</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam.</p>
-                                    <br>
-                                    <div>
-                                        <a href="http://127.0.0.1:8000/blog-details" class="filled-button">Okumaya Devam Et</a>
+                                    <div class="modal-body">
+                                        Blogunuzu yayından kaldırmak mı istiyorsunuz?
                                     </div>
-                                </article>
-                            </section>
-                            <section >
-                                <article id="tabs-2">
-                                    <img src="http://127.0.0.1:8000/assets/images/blog-image-2-940x460.jpg" alt="">
-                                    <h4 class="my-3"><a href="http://127.0.0.1:8000/blog-details" class="text-dark">Blog 2</a></h4>
-                                    <div style="margin-bottom:10px;">
-                                        <span>John Doe &nbsp;|&nbsp; 27.07.2020 10:10 &nbsp;|&nbsp; 15 comments</span>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                                        <button id="deleteBlogButton" type="submit" class="btn btn-danger">Kaldır</button>
                                     </div>
-                                    <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam.</p>
-                                    <br>
-                                    <div>
-                                        <a href="http://127.0.0.1:8000/blog-details" class="filled-button">Okumaya Devam Et</a>
-                                    </div>
-                                </article>
-                            </section>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -164,6 +183,41 @@
                         },
                         body: JSON.stringify({
                             car_id: carID
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            location.reload();
+                        } else {
+                            alert("Bir hata oluştu, lütfen tekrar deneyin.");
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let blogID;
+
+            document.querySelectorAll('[data-bs-toggle="modal"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    blogID = this.getAttribute('data-blog-id');
+                });
+            });
+
+            document.getElementById("deleteBlogButton").addEventListener("click", function() {
+                if (blogID) {
+                    fetch("{{ route('deleteBlog') }}", {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            blog_id: blogID
                         })
                     })
                     .then(response => response.json())

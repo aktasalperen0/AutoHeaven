@@ -85,15 +85,17 @@
                     <li class="nav-item {{ Request::is('cars') ? 'active' : '' }}">
                         <a class="nav-link" href="{{route("cars")}}">Arabalar</a>
                     </li>
+                    <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{route("blog")}}">Bloglar</a>
+                    </li>
                     <li class="nav-item
-                     @if(Request::is("about") || Request::is("blog") || Request::is("team") || Request::is("testimonials") || Request::is("faq") || Request::is("terms"))
+                     @if(Request::is("about") || Request::is("team") || Request::is("testimonials") || Request::is("faq") || Request::is("terms"))
                         active
                      @endif
                      dropdown">
                         <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hakkımızda</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{route("about")}}">Hakkımızda</a>
-                            <a class="dropdown-item" href="{{route("blog")}}">Blog</a>
                             <a class="dropdown-item" href="{{route("team")}}">Takım</a>
                             <a class="dropdown-item" href="{{route("testimonials")}}">Görüşler</a>
                             <a class="dropdown-item" href="{{route("faq")}}">SSS</a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\User;
@@ -16,10 +17,11 @@ class VisitorController extends Controller
 
     public function indexPage(){
         $cars = Car::orderBy("price", "desc")->get();
+        $blogs = Blog::orderBy("updated_at")->paginate(3);
 
         $gearTypes = [" ", "Manuel", "Otomatik", "Yarı-Otomatik"];
 
-        return view("front.index", compact("cars", "gearTypes"));
+        return view("front.index", compact("cars", "blogs", "gearTypes"));
     }
 
     public function aboutPage(){
@@ -27,11 +29,21 @@ class VisitorController extends Controller
     }
 
     public function blogPage(){
-        return view("front.blog");
+
+        $blogs = Blog::orderBy("updated_at", "desc")->paginate(5);
+
+        return view("front.blog", compact("blogs"));
     }
 
-    public function blogDetailsPage(){
-        return view("front.blog-details");
+    public function blogDetailsPage($id){
+
+        $blog = Blog::find($id);
+
+        if(!$blog){
+            abort(404);
+        }
+
+        return view("front.blog-details", compact("blog"));
     }
 
     public function carDetailsPage($id){
@@ -74,10 +86,6 @@ class VisitorController extends Controller
             });
         }
 
-        if ($request->filled('color') && $request->color != 0) {
-            $carsQuery->where('color', $request->color);
-        }
-
         if ($request->filled('yearStart') && $request->yearStart != 0) {
             $carsQuery->where('year', '>=', $request->yearStart);
         }
@@ -86,12 +94,20 @@ class VisitorController extends Controller
             $carsQuery->where('year', '<=', $request->yearEnd);
         }
 
+        if ($request->filled('color') && $request->color != 0) {
+            $carsQuery->where('color', $request->color);
+        }
+
         if ($request->filled('kmStart') && $request->kmStart != 0) {
             $carsQuery->where('km', '>=', $request->kmStart);
         }
 
         if ($request->filled('kmEnd') && $request->kmEnd != 0) {
             $carsQuery->where('km', '<=', $request->kmEnd);
+        }
+
+        if ($request->filled('guarantee') && $request->guarantee != 0) {
+            $carsQuery->where('guarantee', $request->guarantee);
         }
 
         if ($request->filled('gearType') && $request->gearType != 0) {
@@ -142,14 +158,15 @@ class VisitorController extends Controller
         }
 
         $cars = Car::where('user_id', $id)->get();
+        $blogs = Blog::where('user_id', $id)->get();
 
         $gearTypes = ["", "Manuel", "Otomatik", "Yarı-Otomatik"];
 
         if($id == Auth::id()){
-            return view("front.dealer.myProfile", compact("id", "user", "cars", "gearTypes"));
+            return view("front.dealer.myProfile", compact("id", "user", "cars", "blogs", "gearTypes"));
         }
 
-        return view("front.profile", compact("id", "user", "cars", "gearTypes"));
+        return view("front.profile", compact("id", "user", "cars", "blogs", "gearTypes"));
     }
 
     public function teamPage(){

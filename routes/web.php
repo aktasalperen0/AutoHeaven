@@ -16,7 +16,7 @@ Route::get("/about", [VisitorController::class, "aboutPage"])->name("about");
 
 Route::get("/blog", [VisitorController::class, "blogPage"])->name("blog");
 
-Route::get("/blog-details", [VisitorController::class, "blogDetailsPage"])->name("blog-details");
+Route::get("/blog-details/{id}", [VisitorController::class, "blogDetailsPage"])->name("blog-details");
 
 Route::get("/car-details/{id}", [VisitorController::class, "carDetailsPage"])->name("car-details");
 
@@ -63,6 +63,16 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::post("/editCarPost/{id}", [DealerController::class, "editCar"])->name("editCarPost");
 
     Route::post("/deleteCar", [DealerController::class, "deleteCar"])->name("deleteCar");
+
+    Route::get("/writeBlog", [DealerController::class, "writeBlogPage"])->name("writeBlog");
+
+    Route::post("/writeBlogPost", [DealerController::class, "writeBlog"])->name("writeBlogPost");
+
+    Route::get("/editBlog/{id}", [DealerController::class, "editBlogPage"])->name("editBlog");
+
+    Route::post("/editBlogPost/{id}", [DealerController::class, "editBlog"])->name("editBlogPost");
+
+    Route::post("/deleteBlog", [DealerController::class, "deleteBlog"])->name("deleteBlog");
 
     //End Dealer Routes
 

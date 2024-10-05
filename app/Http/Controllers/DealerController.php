@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarDamage;
@@ -17,9 +18,11 @@ class DealerController extends Controller
 
         $cars = Car::where('user_id', Auth::id())->get();
 
+        $blogs = Blog::where('user_id', Auth::id())->get();
+
         $gearTypes = ["", "Manuel", "Otomatik", "Yarı-Otomatik"];
 
-        return view('front.dealer.myProfile',compact("user","cars", "gearTypes"));
+        return view('front.dealer.myProfile',compact("user","cars", "blogs", "gearTypes"));
     }
 
     public function editMyProfilePage()
@@ -284,6 +287,99 @@ class DealerController extends Controller
 
         if ($car){
             $car->delete();
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false]);
+    }
+
+    public function writeBlogPage(){
+        return view('front.dealer.writeBlog');
+    }
+
+    public function writeBlog(Request $request){
+
+        $request->validate([
+            "title" => "required | min:5 | max:100",
+            "content" => "required | min:5 | max:10000",
+        ],[
+            "title.required" => "Lütfen başlık giriniz!",
+            "title.min" => "Başlık minimum 5 haneli olabilir!",
+            "title.max" => "Başlık maksimum 100 haneli olabilir!",
+            "content.required" => "Lütfen açıklama giriniz!",
+            "content.min" => "Açıklama minimum 5 haneli olabilir!",
+            "content.max" => "Açıklama maksimum 10000 haneli olabilir!",
+        ]);
+
+        $blog = new Blog();
+        $blog->user_id = Auth::id();
+        $blog->title = $request->input("title");
+        $blog->content = $request->input("content");
+
+        if($request->hasFile("media")){
+            $path = public_path("/assets/images");
+            $file = $request->file("media");
+            $name = $file->getClientOriginalName();
+            $file->move($path,$name);
+            $blog->media = $name;
+        }
+
+        $blog->save();
+
+        return redirect("/myProfile")->with("success", "Blogunuz başarıyla yayınlandı.");
+    }
+
+    public function editBlogPage($id){
+        $blog = Blog::find($id);
+
+        if(!$blog){
+            abort(404);
+        }
+
+        if ($blog->user_id != Auth::id()) {
+            abort(403);
+        }
+
+        return view('front.dealer.editBlog', compact('blog', "id"));
+    }
+
+    public function editBlog(Request $request, $id){
+
+        $request->validate([
+            "title" => "required | min:5 | max:100",
+            "content" => "required | min:5 | max:10000",
+        ],[
+            "title.required" => "Lütfen başlık giriniz!",
+            "title.min" => "Başlık minimum 5 haneli olabilir!",
+            "title.max" => "Başlık maksimum 100 haneli olabilir!",
+            "content.required" => "Lütfen açıklama giriniz!",
+            "content.min" => "Açıklama minimum 5 haneli olabilir!",
+            "content.max" => "Açıklama maksimum 10000 haneli olabilir!",
+        ]);
+
+        $blog = Blog::find($id);
+        $blog->title = $request->input("title");
+        $blog->content = $request->input("content");
+
+        if($request->hasFile("media")){
+            $path = public_path("/assets/images");
+            $file = $request->file("media");
+            $name = $file->getClientOriginalName();
+            $file->move($path,$name);
+            $blog->media = $name;
+        }
+
+        $blog->save();
+
+        return redirect("/myProfile")->with("success", "Blogunuz başarıyla güncellendi.");
+    }
+
+    public function deleteBlog(Request $request){
+        $blogID = $request->input("blog_id");
+        $blog = Blog::find($blogID);
+
+        if ($blog){
+            $blog->delete();
             return response()->json(['success' => true]);
         }
 

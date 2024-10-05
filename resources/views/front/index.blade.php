@@ -84,7 +84,7 @@
                                   </span>
                                 </div>
                                 <p>
-                                    <i class="fa fa-dashboard"></i> {{$cars[$i]->km}} &nbsp;&nbsp;&nbsp;
+                                    <i class="fa fa-dashboard"></i> {{$cars[$i]->km}}km &nbsp;&nbsp;&nbsp;
                                     <i class="fa fa-cog"></i> {{$gearTypes[$cars[$i]->gear_type]}}
                                 </p>
                                 <a href="car-details/{{$cars[$i]->id}}" class="filled-button">İncele</a>
@@ -129,9 +129,9 @@
             <div class="row" id="tabs">
                 <div class="col-md-4">
                     <ul>
-                        <li><a href='#tabs-1'>Lorem ipsum dolor sit amet, consectetur adipisicing <br> <small>John Doe &nbsp;|&nbsp; 27.07.2020 10:10</small></a></li>
-                        <li><a href='#tabs-2'>Mauris lobortis quam id dictum dignissim <br> <small>John Doe &nbsp;|&nbsp; 27.07.2020 10:10</small></a></li>
-                        <li><a href='#tabs-3'>Class aptent taciti sociosqu ad litora torquent per <br> <small>John Doe &nbsp;|&nbsp; 27.07.2020 10:10</small></a></li>
+                        @foreach($blogs as $blog)
+                            <li><a href='#tabs-{{$blog->id}}'>{{$blog->title}} <br> <small>{{$blog->getUsers->name}} {{$blog->getUsers->surname}} &nbsp;|&nbsp; {{$blog->updated_at->diffForHumans()}}</small></a></li>
+                        @endforeach
                     </ul>
 
                     <br>
@@ -145,22 +145,16 @@
 
                 <div class="col-md-8">
                     <section class='tabs-content'>
-                        <article id='tabs-1'>
-                            <img src="{{asset("assets/images/blog-image-1-940x460.jpg")}}" alt="">
-                            <h4><a href="{{route("blog-details")}}">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></h4>
-                            <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet.</p>
-                        </article>
-                        <article id='tabs-2'>
-                            <img src="{{asset("assets/images/blog-image-2-940x460.jpg")}}" alt="">
-                            <h4><a href="{{route("blog-details")}}">Mauris lobortis quam id dictum dignissim</a></h4>
-                            <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet</p>
-                        </article>
-                        <article id='tabs-3'>
-                            <img src="{{asset("assets/images/blog-image-3-940x460.jpg")}}" alt="">
-                            <h4><a href="{{route("blog-details")}}">Class aptent taciti sociosqu ad litora torquent per</a></h4>
-                            <p>Mauris lobortis quam id dictum dignissim. Donec pellentesque erat dolor, cursus dapibus turpis hendrerit quis. Suspendisse at suscipit arcu. Nulla sed erat lectus. Nulla facilisi. In sit amet neque sapien. Donec scelerisque mi at gravida efficitur. Nunc lacinia a est eu malesuada. Curabitur eleifend elit sapien, sed pulvinar orci luctus eget.
-                            </p>
-                        </article>
+                        @foreach($blogs as $blog)
+                            <article id='tabs-{{$blog->id}}'>
+                                <img src="{{asset("assets/images/$blog->media")}}" alt="">
+                                <h4><a href="{{route("blog-details", $blog)}}">{{$blog->title}}</a></h4>
+                                <p>{{Str::limit($blog->content, 200)}}</p>
+                                <div class="mt-3">
+                                    <a href="{{route("blog-details", $blog)}}" class="filled-button">Okumaya Devam Et</a>
+                                </div>
+                            </article>
+                        @endforeach
                     </section>
                 </div>
             </div>
@@ -183,38 +177,29 @@
 
                         <div class="testimonial-item">
                             <div class="inner-content">
-                                <h4>George Walker</h4>
-                                <span>Chief Financial Analyst</span>
-                                <p>"Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem sit amet quam. Pellentesque in sagittis lacus."</p>
+                                <h4>Ali Yılmaz</h4>
+                                <span>Yazılım Mühendisi</span>
+                                <p>"Bu site sayesinde aradığım aracı hızlıca buldum ve tüm detaylara kolayca eriştim. Kullanıcı dostu arayüzü ve geniş araç seçenekleri harika!"</p>
                             </div>
-                            <img src="http://placehold.it/60x60" alt="">
+                            <img src="{{asset("assets/images/team-image-1-646x680.jpg")}}" alt="">
                         </div>
 
                         <div class="testimonial-item">
                             <div class="inner-content">
-                                <h4>John Smith</h4>
-                                <span>Market Specialist</span>
-                                <p>"In eget leo ante. Sed nibh leo, laoreet accumsan euismod quis, scelerisque a nunc. Mauris accumsan, arcu id ornare malesuada, est nulla luctus nisi."</p>
+                                <h4>Ayşe Kaya</h4>
+                                <span>Grafik Tasarımcı</span>
+                                <p>"Araç seçenekleri çok fazla ve fiyatlar oldukça makul. Ayrıca, sitenin filtreleme sistemi de çok pratik!"</p>
                             </div>
-                            <img src="http://placehold.it/60x60" alt="">
+                            <img src="{{asset("assets/images/team-image-2-646x680.jpg")}}" alt="">
                         </div>
 
                         <div class="testimonial-item">
                             <div class="inner-content">
-                                <h4>David Wood</h4>
-                                <span>Chief Accountant</span>
-                                <p>"Ut ultricies maximus turpis, in sollicitudin ligula posuere vel. Donec finibus maximus neque, vitae egestas quam imperdiet nec. Proin nec mauris eu tortor consectetur tristique."</p>
+                                <h4>Mehmet Demir</h4>
+                                <span>Proje Yöneticisi</span>
+                                <p>"Site üzerinde gezinmek çok kolay ve araçlar hakkında detaylı bilgi alabiliyorsunuz. Güvenilir ve kullanışlı bir platform!"</p>
                             </div>
-                            <img src="http://placehold.it/60x60" alt="">
-                        </div>
-
-                        <div class="testimonial-item">
-                            <div class="inner-content">
-                                <h4>Andrew Boom</h4>
-                                <span>Marketing Head</span>
-                                <p>"Curabitur sollicitudin, tortor at suscipit volutpat, nisi arcu aliquet dui, vitae semper sem turpis quis libero. Quisque vulputate lacinia nisl ac lobortis."</p>
-                            </div>
-                            <img src="http://placehold.it/60x60" alt="">
+                            <img src="{{asset("assets/images/team-image-3-646x680.jpg")}}" alt="">
                         </div>
 
                     </div>
