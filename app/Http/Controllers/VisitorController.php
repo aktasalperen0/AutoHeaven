@@ -17,7 +17,7 @@ class VisitorController extends Controller
 
     public function indexPage(){
         $cars = Car::orderBy("price", "desc")->get();
-        $blogs = Blog::orderBy("updated_at")->paginate(3);
+        $blogs = Blog::paginate(3);
 
         $gearTypes = [" ", "Manuel", "Otomatik", "Yarı-Otomatik"];
 

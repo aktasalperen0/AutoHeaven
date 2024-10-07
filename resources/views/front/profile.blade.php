@@ -70,8 +70,8 @@
 
                     <h2 class="mt-5">Blogların</h2>
                     <div class="row mt-5">
-                        <div class="col-md-12 owl-testimonials owl-carousel">
-                            @if($blogs->count() > 0)
+                        @if($blogs->count() > 0)
+                            <div class="col-md-12 owl-testimonials owl-carousel">
                                 @foreach($blogs as $blog)
                                     <section >
                                         <article id="tabs-1">
@@ -92,10 +92,10 @@
                                         </article>
                                     </section>
                                 @endforeach
-                            @else
-                                <h2 class="text-center" style="opacity: 25%">Henüz bir blog mevcut değil.</h2>
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                            <h2 class="text-center" style="opacity: 25%">Henüz bir blog mevcut değil.</h2>
+                        @endif
                     </div>
                 </div>
             </div>

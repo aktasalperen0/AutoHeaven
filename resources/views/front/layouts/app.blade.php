@@ -21,15 +21,15 @@
     <link rel="stylesheet" href="{{asset("assets/css/owl.css")}}">
 
     <style>
-        ::-webkit-scrollbar {
+        html::-webkit-scrollbar {
             width: 12px;
         }
 
-        ::-webkit-scrollbar-track {
+        html::-webkit-scrollbar-track {
             background: #232323;
         }
 
-        ::-webkit-scrollbar-thumb {
+        html::-webkit-scrollbar-thumb {
             background-color: #a4c639;
         }
     </style>

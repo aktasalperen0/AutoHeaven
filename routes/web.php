@@ -82,9 +82,22 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::group(["prefix" => "admin", "middleware" => [isAdmin::class]], function (){
 
+        Route::get("/", [AdminController::class, "adminPage"])->name("admin");
+
+        Route::post("/getUser", [AdminController::class, "getUser"])->name("getUser");
+
+        Route::post("/editUser", [AdminController::class, "editUser"])->name("editUser");
+
+        Route::get("/cars", [AdminController::class, "carsPage"])->name("admin.cars");
+
+        Route::post("/getCar", [AdminController::class, "getCar"])->name("getCar");
+
+        Route::post("/editCar", [AdminController::class, "editCar"])->name("admin.editCar");
+
         Route::get("/addBrandModel", [AdminController::class, "addBrandModelPage"])->name("addBrandModel");
 
         Route::post("/addBrandModelPost", [AdminController::class, "addBrandModel"])->name("addBrandModelPost");
+
     });
 
     //End Admin Routes

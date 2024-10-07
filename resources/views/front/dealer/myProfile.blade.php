@@ -46,7 +46,7 @@
                                 <a href="{{route("writeBlog")}}" class="filled-button mt-5">Blog Yaz</a>
                                 <a href="{{route("editMyProfile")}}" class="filled-button mt-2">Profili Düzenle</a>
                                 @if(\Illuminate\Support\Facades\Auth::user()->role == 0)
-                                    <a href="{{route("addBrandModel")}}" class="filled-button mt-2">Araba Marka/Model Ekle</a>
+                                    <a href="{{route("admin")}}" class="filled-button mt-2">Yönetim</a>
                                 @endif
                             </div>
                         </div>

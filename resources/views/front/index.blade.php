@@ -147,7 +147,11 @@
                     <section class='tabs-content'>
                         @foreach($blogs as $blog)
                             <article id='tabs-{{$blog->id}}'>
-                                <img src="{{asset("assets/images/$blog->media")}}" alt="">
+                                @if($blog->media)
+                                    <img src="{{asset("assets/images/$blog->media")}}" alt="">
+                                @else
+                                    <img src="{{asset("assets/images/no-car.jpg")}}" alt="">
+                                @endif
                                 <h4><a href="{{route("blog-details", $blog)}}">{{$blog->title}}</a></h4>
                                 <p>{{Str::limit($blog->content, 200)}}</p>
                                 <div class="mt-3">
