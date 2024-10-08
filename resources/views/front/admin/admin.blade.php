@@ -52,19 +52,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link link-dark">
+                                <a href="{{route("brandModel")}}" class="nav-link link-dark">
                                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                                    Araba Modelleri
+                                    Araba Marka/Modelleri
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link link-dark">
-                                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                                    Araba Markaları
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link link-dark">
+                                <a href="{{route("carDamages")}}" class="nav-link link-dark">
                                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                                     Araba Hasarları
                                 </a>

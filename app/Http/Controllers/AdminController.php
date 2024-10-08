@@ -9,6 +9,7 @@ use App\Models\CarDamage;
 use App\Models\CarModel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -140,31 +141,125 @@ class AdminController extends Controller
         return response()->json(['success' => false], 404);
     }
 
-    public function addBrandModelPage(){
-        return view("front.admin.addBrandModel");
+    public function brandModelPage(){
+
+        $carBrands = CarBrand::all();
+        $carModels = CarModel::all();
+
+        return view("front.admin.brandModel", compact('carBrands', "carModels"));
     }
 
-    public function addBrandModel(Request $request){
+    public function getModel(Request $request){
 
-        request()->validate([
-            "brand" => "required | max:20",
-            "model" => "required | max:20",
-        ],[
-            "brand.required" => "Lütfen marka ekleyiniz!",
-            "brand.max" => "Marka maksimum 20 haneli olmalı!",
-            "model.required" => "Lütfen model ekleyiniz!",
-            "model.max" => "Model maksimum 20 haneli olmalı!"
-        ]);
+        $model = CarModel::find($request->model_id);
 
-        $carBrand = CarBrand::firstOrCreate(
-            ["name" => $request->input("brand")]
-        );
+        if ($model) {
+            return response()->json([
+                'success' => true,
+                'id' => $model->id,
+                'brand' => $model->brand_id,
+                'model' => $model->name
+            ]);
+        } else {
+            return response()->json(['success' => false], 404);
+        }
+    }
 
-        $carModel = new CarModel();
-        $carModel->brand_id = $carBrand->id;
-        $carModel->name = $request->input("model");
-        $carModel->save();
+    public function editModel(Request $request){
 
-        return redirect()->back()->with("success", "Marka ve model başarıyla eklendi.");
+        $model = CarModel::find($request->model_id);
+
+        if ($model) {
+            $model->brand_id = $request->brand;
+            $model->name = $request->model;
+            $model->save();
+
+            return response()->json(["success" => true]);
+        }
+
+        return response()->json(['success' => false], 404);
+    }
+
+    public function getBrand(Request $request){
+
+        $brand = CarBrand::find($request->brand_id);
+
+        if ($brand) {
+            return response()->json([
+                'success' => true,
+                'id' => $brand->id,
+                'brand' => $brand->name
+            ]);
+        } else {
+            return response()->json(['success' => false], 404);
+        }
+    }
+
+    public function editBrand(Request $request){
+
+        $brand = CarBrand::find($request->brand_id);
+
+        if ($brand) {
+            $brand->name = $request->brand;
+            $brand->save();
+
+            return response()->json(["success" => true]);
+        }
+
+        return response()->json(['success' => false], 404);
+    }
+
+    public function addBrand(Request $request){
+
+        $brand = new CarBrand();
+        $brand->name = $request->brand_3;
+        $brand->save();
+
+        return redirect("/admin/brandModel")->with("success", "Marka başarıyla eklendi.");
+    }
+
+    public function addModel(Request $request){
+
+        $model = new CarModel();
+        $model->brand_id = $request->brand_4;
+        $model->name = $request->model_4;
+        $model->save();
+
+        return redirect("/admin/brandModel")->with("success", "Model başarıyla eklendi.");
+    }
+
+    public function carDamagesPage(){
+
+        $carDamages = CarDamage::all();
+
+        return view("front.admin.carDamages", compact('carDamages'));
+    }
+
+    public function getCarDamage(Request $request){
+
+        $carDamage = CarDamage::find($request->car_damage_id);
+
+        if ($carDamage) {
+            return response()->json([
+                'success' => true,
+                'damage_description' => $carDamage->description
+            ]);
+        } else {
+            return response()->json(['success' => false], 404);
+        }
+    }
+
+    public function editCarDamage(Request $request){
+
+        $carDamage = CarDamage::find($request->car_damage_id);
+
+        if ($carDamage) {
+            $carDamage->description = $request->damage_description;
+            $carDamage->save();
+
+            return response()->json(["success" => true]);
+        }
+
+        return response()->json(['success' => false], 404);
     }
 }

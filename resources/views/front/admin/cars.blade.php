@@ -46,25 +46,19 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link active" style="background-color: #a4c639">
+                                <a href="{{route("admin.cars")}}" class="nav-link active" style="background-color: #a4c639">
                                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
                                     Arabalar
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link link-dark">
+                                <a href="{{route("brandModel")}}" class="nav-link link-dark">
                                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                                    Araba Modelleri
+                                    Araba Marka/Modelleri
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link link-dark">
-                                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                                    Araba Markaları
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link link-dark">
+                                <a href="{{route("carDamages")}}" class="nav-link link-dark">
                                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                                     Araba Hasarları
                                 </a>
@@ -133,7 +127,7 @@
                                                     <form id="editCarForm">
                                                         @csrf
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Araba İlanı Güncelle</h1>
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Araç İlanı Güncelle</h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">

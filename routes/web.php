@@ -94,10 +94,25 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
         Route::post("/editCar", [AdminController::class, "editCar"])->name("admin.editCar");
 
-        Route::get("/addBrandModel", [AdminController::class, "addBrandModelPage"])->name("addBrandModel");
+        Route::get("/brandModel", [AdminController::class, "brandModelPage"])->name("brandModel");
 
-        Route::post("/addBrandModelPost", [AdminController::class, "addBrandModel"])->name("addBrandModelPost");
+        Route::post("/getModel", [AdminController::class, "getModel"])->name("getModel");
 
+        Route::post("/editModel", [AdminController::class, "editModel"])->name("editModel");
+
+        Route::post("/getBrand", [AdminController::class, "getBrand"])->name("getBrand");
+
+        Route::post("/editBrand", [AdminController::class, "editBrand"])->name("editBrand");
+
+        Route::post("/addBrand", [AdminController::class, "addBrand"])->name("addBrand");
+
+        Route::post("/addModel", [AdminController::class, "addModel"])->name("addModel");
+
+        Route::get("/carDamages", [AdminController::class, "carDamagesPage"])->name("carDamages");
+
+        Route::post("/getCarDamage", [AdminController::class, "getCarDamage"])->name("getCarDamage");
+
+        Route::post("/editCarDamage", [AdminController::class, "editCarDamage"])->name("editCarDamage");
     });
 
     //End Admin Routes
