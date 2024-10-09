@@ -113,6 +113,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::post("/getCarDamage", [AdminController::class, "getCarDamage"])->name("getCarDamage");
 
         Route::post("/editCarDamage", [AdminController::class, "editCarDamage"])->name("editCarDamage");
+
+        Route::get("/blogs", [AdminController::class, "blogsPage"])->name("blogs");
+
+        Route::post("/getBlog", [AdminController::class, "getBlog"])->name("getBlog");
+
+        Route::post("/editBlog", [AdminController::class, "editBlog"])->name("admin.editBlog");
     });
 
     //End Admin Routes

@@ -262,4 +262,47 @@ class AdminController extends Controller
 
         return response()->json(['success' => false], 404);
     }
+
+    public function blogsPage(){
+
+        $blogs = Blog::withTrashed()->get();
+
+        return view("front.admin.blogs", compact('blogs'));
+    }
+
+    public function getBlog(Request $request){
+
+        $blog = Blog::withTrashed()->find($request->blog_id);
+
+        if ($blog) {
+            return response()->json([
+                'success' => true,
+                'title' => $blog->title,
+                'content' => $blog->content,
+                'deleted_at' => $blog->deleted_at
+            ]);
+        } else {
+            return response()->json(['success' => false], 404);
+        }
+    }
+
+    public function editBlog(Request $request){
+
+        $blog = Blog::withTrashed()->find($request->blog_id);
+
+        if ($blog) {
+            $blog->title = $request->title;
+            $blog->content = $request->input("content");
+            if ($request->status == 0){
+                $blog->deleted_at = null;
+            } else {
+                $blog->delete();
+            }
+            $blog->save();
+
+            return response()->json(["success" => true]);
+        }
+
+        return response()->json(['success' => false], 404);
+    }
 }

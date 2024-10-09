@@ -126,7 +126,11 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h4>Hasar Açıklaması</h4>
-                                    <p>{{$car->getDamages->description}}</p>
+                                    @if($car->getDamages->description == null)
+                                        <p>Hasar açıklaması mevcut değil.</p>
+                                    @else
+                                        <p>{{$car->getDamages->description}}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

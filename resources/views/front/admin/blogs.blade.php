@@ -58,13 +58,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route("carDamages")}}" class="nav-link active" style="background-color: #a4c639">
+                                <a href="{{route("carDamages")}}" class="nav-link link-dark">
                                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                                     Araba Hasarları
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route("blogs")}}" class="nav-link link-dark">
+                                <a href="{{route("blogs")}}" class="nav-link active" style="background-color: #a4c639">
                                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                                     Bloglar
                                 </a>
@@ -73,60 +73,71 @@
                     </div>
                 </div>
                 <div class="col-lg-10 px-5">
-                    <h2 class="px-3 pt-3">Araba Hasarları Tablosu</h2>
+                    <h2 class="px-3 pt-3">Bloglar Tablosu</h2>
                     <div class="table-responsive px-3">
                         <table class="table table-hover mt-5" style="--bs-table-bg: transparent;">
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Sahip</th>
-                                <th scope="col">İlan Başlığı</th>
-                                <th scope="col">Açıklama</th>
-                                <th scope="col">İlan Durumu</th>
+                                <th scope="col">Başlık</th>
+                                <th scope="col">İçerik</th>
+                                <th scope="col">Gönderi Durumu</th>
                                 <th scope="col">İşlemler</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($carDamages as $carDamage)
+                            @foreach($blogs as $blog)
                                 <tr>
-                                    <th scope="row">{{$carDamage->id}}</th>
-                                    @php
-                                        $car = $carDamage->getCars->first();
-                                        $owner = $car ? $car->getUsers->name.' '.$car->getUsers->surname : "Sahip bulunamadı";
-                                        $title = $car ? $car->title : 'Başlık bulunamadı';
-                                        $status = $car ? 'Aktif' : "Pasif";
-                                    @endphp
-                                    <td>{{$owner}}</td>
-                                    <td>{{$title}}</td>
-                                    @if($carDamage->description == null)
-                                        <td>-</td>
+                                    <th scope="row">{{$blog->id}}</th>
+                                    <td>{{$blog->getUsers->name}} {{$blog->getUsers->surname}}</td>
+                                    <td>{{Str::limit($blog->title, 25)}}</td>
+                                    <td>{{Str::limit($blog->content, 25)}}</td>
+                                    @if($blog->deleted_at == null)
+                                        <td>Aktif</td>
                                     @else
-                                        <td>{{Str::limit($carDamage->description, 50)}}</td>
+                                        <td>Pasif</td>
                                     @endif
-                                    <td>{{$status}}</td>
                                     <td>
-                                        <a href="{{route("car-details", $carDamage)}}" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000;"></i></a>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-car-damage-id="{{$carDamage->id}}"><i class="fa-solid fa-pen" style="color: #000000;"></i></button>
+                                        <a href="{{route("blog-details", $blog)}}" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000;"></i></a>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-blog-id="{{$blog->id}}"><i class="fa-solid fa-pen" style="color: #000000;"></i></button>
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                 <div class="modal-content">
-                                                    <form id="editCarDamageForm">
+                                                    <form id="editBlogForm">
                                                         @csrf
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Hasar Açıklaması Güncelle</h1>
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Blog Güncelle</h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <div class="row my-3">
+                                                            <div class="row">
                                                                 <div class="col-lg-12">
-                                                                    <h4 class="px-3">Hasar Açıklaması</h4>
-                                                                    <textarea name="damage_description" class="form-control mt-3 p-3 shadow-none" rows="3" style="border-radius: 25px" id="damage_description" placeholder="Açıklama giriniz" autocomplete="off">{{$carDamage->description}}</textarea>
+                                                                    <h4 class="px-3">Blog Başlığı</h4>
+                                                                    <input name="title" type="text" class="form-control mt-3 p-3"  style="border-radius: 25px" id="title" placeholder="Başlık giriniz" autocomplete="off" value="{{$blog->title}}">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mt-3">
+                                                                <div class="col-lg-12">
+                                                                    <h4 class="px-3">Blog İçeriği</h4>
+                                                                    <textarea name="content" class="form-control mt-3 p-3 shadow-none" rows="5" style="border-radius: 25px" id="content" placeholder="İçerik giriniz" autocomplete="off">{{$blog->content}}</textarea>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mt-3">
+                                                                <div class="col-lg-12">
+                                                                    <span class="h4 px-3">Gönderi Durumu</span>
+                                                                    <select id="status" name="status" class="form-control mt-3 shadow-none" style="border-radius: 25px">
+                                                                        <option value="0" selected>Aktif</option>
+                                                                        <option value="1">Pasif</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                                                            <button id="editCarDamageButton" type="submit" class="btn btn-success border-0" style="background-color: #a4c639">Güncelle</button>
+                                                            <button id="editBlogButton" type="submit" class="btn btn-success border-0" style="background-color: #a4c639">Güncelle</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -145,25 +156,29 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let carDamageID;
+            let blogID;
 
             document.querySelectorAll('[data-bs-toggle="modal"]').forEach(button => {
                 button.addEventListener('click', function() {
-                    carDamageID = this.getAttribute('data-car-damage-id');
-                    fetch("{{route("getCarDamage")}}", {
+                    blogID = this.getAttribute('data-blog-id');
+                    console.log(blogID)
+                    fetch("{{route("getBlog")}}", {
                         method: "POST",
                         headers: {
                             "X-CSRF-TOKEN": "{{ csrf_token() }}",
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                            car_damage_id: carDamageID
+                            blog_id: blogID
                         })
                     })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            document.getElementById('damage_description').value = data.damage_description;
+                            document.getElementById('title').value = data.title;
+                            document.getElementById('content').value = data.content;
+                            document.getElementById('title').value = data.title;
+                            document.getElementById('status').value = data.deleted_at ? '1' : '0';
                         } else {
                             alert("Bir hata oluştu, lütfen tekrar deneyin.");
                         }
@@ -172,18 +187,20 @@
                 });
             });
 
-            document.getElementById("editCarDamageButton").addEventListener("click", function(e) {
+            document.getElementById("editBlogButton").addEventListener("click", function(e) {
                 e.preventDefault()
-                if (carDamageID) {
-                    fetch("{{ route('editCarDamage') }}", {
+                if (blogID) {
+                    fetch("{{ route('admin.editBlog') }}", {
                         method: "POST",
                         headers: {
                             "X-CSRF-TOKEN": "{{ csrf_token() }}",
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                            car_damage_id: carDamageID,
-                            damage_description: document.getElementById('damage_description').value
+                            blog_id: blogID,
+                            title: document.getElementById('title').value,
+                            content: document.getElementById('content').value,
+                            status: document.getElementById('status').value,
                         })
                     })
                     .then(response => response.json())
