@@ -15,6 +15,12 @@
 
     <div class="more-info about-info">
         <div class="container">
+            @if(session("success"))
+                <div class="alert alert-success alert-dismissible fade show mb-5" role="alert">
+                    {{session("success")}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="more-info-content">
                 <div class="right-content">
                     <div>
@@ -39,27 +45,28 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="contact-form">
-                        <form id="contact" action="" method="get">
+                    <div class="contact-form" data-blog-id="{{$blog->id}}">
+                        <form id="commentForm">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                     <fieldset>
-                                        <input name="name" type="text" class="form-control" id="name" placeholder="Ad Soyad" required="">
+                                        <input name="name_surname" type="text" class="form-control" id="name_surname" placeholder="Ad Soyad" autocomplete="off">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                     <fieldset>
-                                        <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail" required="">
+                                        <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Posta" autocomplete="off">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
                                     <fieldset>
-                                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Mesajınız" required=""></textarea>
+                                        <textarea name="comment" rows="6" class="form-control" id="comment" placeholder="Yorumunuz" autocomplete="off"></textarea>
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
                                     <fieldset>
-                                        <button type="submit" id="form-submit" class="filled-button">Gönder</button>
+                                        <button type="submit" id="sendCommentButton" class="filled-button">Gönder</button>
                                     </fieldset>
                                 </div>
                             </div>
@@ -69,4 +76,38 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let blogID = document.querySelector('.contact-form').getAttribute('data-blog-id');
+
+            document.getElementById("sendCommentButton").addEventListener("click", function(e) {
+                e.preventDefault()
+                if (blogID) {
+                    fetch("{{ route('sendComment') }}", {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            blog_id: blogID,
+                            name_surname: document.getElementById('name_surname').value,
+                            email: document.getElementById('email').value,
+                            comment: document.getElementById('comment').value
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            location.reload();
+                        } else {
+                            alert("Bir hata oluştu, lütfen tekrar deneyin.");
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+                }
+            });
+        });
+    </script>
 @endsection

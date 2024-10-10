@@ -69,6 +69,12 @@
                                     Bloglar
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{route("admin.contact")}}" class="nav-link link-dark">
+                                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                                    Destek
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

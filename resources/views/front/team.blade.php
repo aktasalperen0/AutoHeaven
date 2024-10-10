@@ -31,7 +31,7 @@
                             <p>Merhaba, ben Alperen. Yeniliklere ve öğrenmeye açığım. Takım çalışmasına ve projelerde yer almaya hazırım!</p>
 
                             <p>
-                                <a href="#"><span><i class="fa fa-linkedin"></i></span></a>
+                                <a href="https://www.linkedin.com/in/aktasalperen0/" target="_blank"><span><i class="fa fa-linkedin"></i></span></a>
                             </p>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                             <span>Senior Web Developer</span>
                             <p>Merhaba, ben Elif. Yeniliklere ve öğrenmeye açığım. Takım çalışmasına ve projelerde yer almaya hazırım!</p>
                             <p>
-                                <a href="#"><span><i class="fa fa-linkedin"></i></span></a>
+                                <a href="https://www.linkedin.com/in/elif-bahar-%C3%B6zdo%C4%9Fru/" target="_blank"><span><i class="fa fa-linkedin"></i></span></a>
                             </p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                             <span>Junior Web Developer</span>
                             <p>Merhaba, ben Yakup. Yeniliklere ve öğrenmeye açığım. Takım çalışmasına ve projelerde yer almaya hazırım!</p>
                             <p>
-                                <a href="#"><span><i class="fa fa-linkedin"></i></span></a>
+                                <a href="https://www.linkedin.com/in/yakup-aktar-8910b01b1/" target="_blank"><span><i class="fa fa-linkedin"></i></span></a>
                             </p>
                         </div>
                     </div>

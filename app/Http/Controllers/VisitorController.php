@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Car;
 use App\Models\CarBrand;
+use App\Models\CarDamage;
+use App\Models\CarModel;
+use App\Models\Comment;
+use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +26,39 @@ class VisitorController extends Controller
         $gearTypes = [" ", "Manuel", "Otomatik", "Yarı-Otomatik"];
 
         return view("front.index", compact("cars", "blogs", "gearTypes"));
+    }
+
+    public function sendMessage(Request $request){
+
+        $request->validate([
+            "name_surname" => "required | min:2 | max:50",
+            "email" => "required | min:5 | max:50",
+            "topic" => "min:5 | max:100",
+            "message" => "required | min:5 | max:10000",
+        ],[
+            "name_surname.required" => "Lütfen ad soyad giriniz!",
+            "name_surname.min" => "Ad soyad minimum 2 haneli olabilir!",
+            "name_surname.max" => "Ad soyad maksimum 50 haneli olabilir!",
+            "email.required" => "Lütfen e-posta giriniz!",
+            "email.min" => "E-posta minimum 5 haneli olabilir!",
+            "email.max" => "E-posta maksimum 50 haneli olabilir!",
+            "topic.min" => "Konu minimum 5 haneli olabilir!",
+            "topic.max" => "Konu maksimum 100 haneli olabilir!",
+            "message.required" => "Lütfen mesaj giriniz!",
+            "message.min" => "Mesaj minimum 5 haneli olabilir!",
+            "message.max" => "Mesaj maksimum 10000 haneli olabilir!",
+        ]);
+
+        $contact = new Contact();
+
+        $contact->name_surname = $request->name_surname;
+        $contact->email = $request->email;
+        $contact->topic = $request->topic;
+        $contact->message = $request->message;
+
+        $contact->save();
+
+        return redirect()->back();
     }
 
     public function aboutPage(){
@@ -44,6 +81,18 @@ class VisitorController extends Controller
         }
 
         return view("front.blog-details", compact("blog"));
+    }
+
+    public function sendComment(Request $request){
+
+        $comment = new Comment();
+        $comment->blog_id = $request->blog_id;
+        $comment->name_surname = $request->name_surname;
+        $comment->email = $request->email;
+        $comment->comment = $request->comment;
+        $comment->save();
+
+        return response()->json(['success' => true], 404);
     }
 
     public function carDetailsPage($id){

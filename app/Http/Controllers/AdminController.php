@@ -7,6 +7,7 @@ use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarDamage;
 use App\Models\CarModel;
+use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -304,5 +305,28 @@ class AdminController extends Controller
         }
 
         return response()->json(['success' => false], 404);
+    }
+
+    public function contactPage(){
+        $contacts = Contact::all();
+
+        return view("front.admin.contact", compact('contacts'));
+    }
+
+    public function getMessage(Request $request){
+
+        $message = Contact::find($request->message_id);
+
+        if ($message) {
+            return response()->json([
+                'success' => true,
+                'name_surname' => $message->name_surname,
+                'email' => $message->email,
+                'topic' => $message->topic,
+                'message' => $message->message
+            ]);
+        } else {
+            return response()->json(['success' => false], 404);
+        }
     }
 }

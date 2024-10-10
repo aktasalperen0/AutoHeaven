@@ -112,6 +112,7 @@
 
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{route("myProfile")}}">Profil</a>
+                                    <a class="dropdown-item" href="{{route("inbox")}}">Gelen Kutusu</a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Çıkış Yap</a>
@@ -168,21 +169,22 @@
             <div class="col-md-3 footer-item last-item">
                 <h4>Bize Ulaşın</h4>
                 <div class="contact-form">
-                    <form id="contact footer-contact" action="" method="post">
+                    <form id="contact footer-contact" action="{{route("sendMessage")}}" method="post">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Ad Soyad" required="" autocomplete="off">
+                                    <input name="name_surname" type="text" class="form-control" id="name_surname" placeholder="Ad Soyad" autocomplete="off">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail" required="" autocomplete="off">
+                                    <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Posta" autocomplete="off">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Mesajınız" required=""></textarea>
+                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Mesajınız"></textarea>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">

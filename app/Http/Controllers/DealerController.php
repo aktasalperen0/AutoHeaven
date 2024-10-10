@@ -7,6 +7,7 @@ use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarDamage;
 use App\Models\CarModel;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,34 @@ class DealerController extends Controller
         $gearTypes = ["", "Manuel", "Otomatik", "Yarı-Otomatik"];
 
         return view('front.dealer.myProfile',compact("user","cars", "blogs", "gearTypes"));
+    }
+
+    public function inboxPage()
+    {
+        $comments = Comment::whereHas('getBlogs', function($query) {
+            $query->where('user_id', auth()->id());
+        })->get();
+
+        $comments = $comments->map(function($comment) {
+            $user = User::where('email', $comment->email)->first();
+
+            if ($user) {
+                if ($user->profile_photo_path){
+                    $comment->user_photo = asset('assets/images/'.$user->profile_photo_path);
+                }else{
+                    $comment->user_photo = asset('assets/images/anonymous.png');
+                }
+                $comment->user_id = $user->id;
+            } else {
+                $comment->user_photo = asset('assets/images/anonymous.png');
+            }
+
+            return $comment;
+        });
+
+        $groupedComments = $comments->groupBy('blog_id');
+
+        return view('front.dealer.inbox', compact('groupedComments'));
     }
 
     public function editMyProfilePage()

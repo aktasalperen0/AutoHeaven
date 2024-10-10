@@ -21,7 +21,7 @@
                         <i class="fa fa-phone"></i>
                         <h4>Telefon</h4>
                         <p>Hızlı ve Kolay İletişim!</p>
-                        <a href="#">123-456-7890</a>
+                        <a href="tel:1234567890">123-456-7890</a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -29,7 +29,7 @@
                         <i class="fa fa-envelope"></i>
                         <h4>Email</h4>
                         <p>Maille Bize Ulaşın!</p>
-                        <a href="#">autoheaven@company.com</a>
+                        <a href="mailto:autoheaven@company.com">autoheaven@company.com</a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -37,7 +37,7 @@
                         <i class="fa fa-map-marker"></i>
                         <h4>Konum</h4>
                         <p>Üniversite, Fırat Ünv., 23200 Elâzığ Merkez/Elazığ</p>
-                        <a href="#">Google Maps'te İncele</a>
+                        <a href="https://www.google.com/maps?ll=38.677757,39.201956&z=16&t=m&hl=tr&gl=TR&mapclient=embed&cid=10942151332663835802" target="_blank">Google Maps'te İncele</a>
                     </div>
                 </div>
             </div>
@@ -55,26 +55,27 @@
                 </div>
                 <div class="col-md-12">
                     <div class="contact-form">
-                        <form id="contact" action="" method="get">
+                        <form id="contact" action="{{route("sendMessage")}}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-4 col-md-12 col-sm-12">
                                     <fieldset>
-                                        <input name="name" type="text" class="form-control" id="name" placeholder="Ad Soyad" required="">
+                                        <input name="name_surname" type="text" class="form-control" id="name_surname" placeholder="Ad Soyad" autocomplete="off">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-4 col-md-12 col-sm-12">
                                     <fieldset>
-                                        <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail" required="">
+                                        <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Posta" autocomplete="off">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-4 col-md-12 col-sm-12">
                                     <fieldset>
-                                        <input name="subject" type="text" class="form-control" id="subject" placeholder="Konu" required="">
+                                        <input name="topic" type="text" class="form-control" id="topic" placeholder="Konu" autocomplete="off">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
                                     <fieldset>
-                                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Mesajınız" required=""></textarea>
+                                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Mesajınız" autocomplete="off"></textarea>
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">

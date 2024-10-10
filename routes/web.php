@@ -12,11 +12,15 @@ Route::get("/testTemplate", [VisitorController::class, "testTemplatePage"])->nam
 
 Route::get('/', [VisitorController::class, "indexPage"])->name("index");
 
+Route::post("/sendMessage", [VisitorController::class, "sendMessage"])->name("sendMessage");
+
 Route::get("/about", [VisitorController::class, "aboutPage"])->name("about");
 
 Route::get("/blog", [VisitorController::class, "blogPage"])->name("blog");
 
 Route::get("/blog-details/{id}", [VisitorController::class, "blogDetailsPage"])->name("blog-details");
+
+Route::post("/sendComment", [VisitorController::class, "sendComment"])->name("sendComment");
 
 Route::get("/car-details/{id}", [VisitorController::class, "carDetailsPage"])->name("car-details");
 
@@ -45,6 +49,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     //Dealer Routes
 
     Route::get('/myProfile', [DealerController::class, "myProfilePage"])->name('myProfile');
+
+    Route::get("/inbox", [DealerController::class, "inboxPage"])->name('inbox');
 
     Route::get("/editMyProfile", [DealerController::class, "editMyProfilePage"])->name('editMyProfile');
 
@@ -119,6 +125,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::post("/getBlog", [AdminController::class, "getBlog"])->name("getBlog");
 
         Route::post("/editBlog", [AdminController::class, "editBlog"])->name("admin.editBlog");
+
+        Route::get("/contact", [AdminController::class, "contactPage"])->name("admin.contact");
+
+        Route::post("/getMessage", [AdminController::class, "getMessage"])->name("getMessage");
     });
 
     //End Admin Routes

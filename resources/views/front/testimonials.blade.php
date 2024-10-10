@@ -21,38 +21,38 @@
 
                         <div class="testimonial-item">
                             <div class="inner-content">
-                                <h4>George Walker</h4>
-                                <span>Chief Financial Analyst</span>
-                                <p>"Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem sit amet quam. Pellentesque in sagittis lacus."</p>
+                                <h4>Ali Yılmaz</h4>
+                                <span>Yazılım Mühendisi</span>
+                                <p>"Bu site sayesinde aradığım aracı hızlıca buldum ve tüm detaylara kolayca eriştim. Kullanıcı dostu arayüzü ve geniş araç seçenekleri harika!"</p>
                             </div>
-                            <img src="http://placehold.it/60x60" alt="">
+                            <img src="{{asset("assets/images/team-image-1-646x680.jpg")}}" alt="">
                         </div>
 
                         <div class="testimonial-item">
                             <div class="inner-content">
-                                <h4>John Smith</h4>
-                                <span>Market Specialist</span>
-                                <p>"In eget leo ante. Sed nibh leo, laoreet accumsan euismod quis, scelerisque a nunc. Mauris accumsan, arcu id ornare malesuada, est nulla luctus nisi."</p>
+                                <h4>Ayşe Kaya</h4>
+                                <span>Grafik Tasarımcı</span>
+                                <p>"Araç seçenekleri çok fazla ve fiyatlar oldukça makul. Ayrıca, sitenin filtreleme sistemi de çok pratik!"</p>
                             </div>
-                            <img src="http://placehold.it/60x60" alt="">
+                            <img src="{{asset("assets/images/team-image-2-646x680.jpg")}}" alt="">
                         </div>
 
                         <div class="testimonial-item">
                             <div class="inner-content">
-                                <h4>David Wood</h4>
-                                <span>Chief Accountant</span>
-                                <p>"Ut ultricies maximus turpis, in sollicitudin ligula posuere vel. Donec finibus maximus neque, vitae egestas quam imperdiet nec. Proin nec mauris eu tortor consectetur tristique."</p>
+                                <h4>Mehmet Demir</h4>
+                                <span>Proje Yöneticisi</span>
+                                <p>"Site üzerinde gezinmek çok kolay ve araçlar hakkında detaylı bilgi alabiliyorsunuz. Güvenilir ve kullanışlı bir platform!"</p>
                             </div>
-                            <img src="http://placehold.it/60x60" alt="">
+                            <img src="{{asset("assets/images/team-image-3-646x680.jpg")}}" alt="">
                         </div>
 
                         <div class="testimonial-item">
                             <div class="inner-content">
-                                <h4>Andrew Boom</h4>
-                                <span>Marketing Head</span>
-                                <p>"Curabitur sollicitudin, tortor at suscipit volutpat, nisi arcu aliquet dui, vitae semper sem turpis quis libero. Quisque vulputate lacinia nisl ac lobortis."</p>
+                                <h4>Fatma Çelik</h4>
+                                <span>Veri Analisti</span>
+                                <p>"Bu site sayesinde aradığım aracı hızlıca buldum ve tüm detaylara kolayca eriştim. Kullanıcı dostu arayüzü ve geniş araç seçenekleri harika!"</p>
                             </div>
-                            <img src="http://placehold.it/60x60" alt="">
+                            <img src="{{asset("assets/images/team-image-2-646x680.jpg")}}" alt="">
                         </div>
 
                     </div>

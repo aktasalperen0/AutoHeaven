@@ -12,6 +12,7 @@
     .modal-body {
         max-height: 500px; /* İstediğiniz maksimum yüksekliği ayarlayın */
         overflow-y: auto; /* Dikey kaydırma çubuğunu ekle */
+        white-space: normal;
     }
 </style>
 
@@ -64,13 +65,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route("blogs")}}" class="nav-link active" style="background-color: #a4c639">
+                                <a href="{{route("blogs")}}" class="nav-link link-dark">
                                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                                     Bloglar
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route("admin.contact")}}" class="nav-link link-dark">
+                                <a href="{{route("admin.contact")}}" class="nav-link active" style="background-color: #a4c639">
                                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                                     Destek
                                 </a>
@@ -79,71 +80,66 @@
                     </div>
                 </div>
                 <div class="col-lg-10 px-5">
-                    <h2 class="px-3 pt-3">Bloglar Tablosu</h2>
+                    <h2 class="px-3 pt-3">Destek</h2>
                     <div class="table-responsive px-3">
                         <table class="table table-hover mt-5" style="--bs-table-bg: transparent;">
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Sahip</th>
-                                <th scope="col">Başlık</th>
-                                <th scope="col">İçerik</th>
-                                <th scope="col">Gönderi Durumu</th>
+                                <th scope="col">Ad Soyad</th>
+                                <th scope="col">E-Posta</th>
+                                <th scope="col">Konu</th>
+                                <th scope="col">Mesaj</th>
                                 <th scope="col">İşlemler</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($blogs as $blog)
+                            @foreach($contacts as $contact)
                                 <tr>
-                                    <th scope="row">{{$blog->id}}</th>
-                                    <td>{{$blog->getUsers->name}} {{$blog->getUsers->surname}}</td>
-                                    <td>{{Str::limit($blog->title, 25)}}</td>
-                                    <td>{{Str::limit($blog->content, 25)}}</td>
-                                    @if($blog->deleted_at == null)
-                                        <td>Aktif</td>
+                                    <th scope="row">{{$contact->id}}</th>
+                                    <td>{{$contact->name_surname}}</td>
+                                    <td> {{$contact->email}}</td>
+                                    @if($contact->topic)
+                                        <td>{{Str::limit($contact->topic, 25)}}</td>
                                     @else
-                                        <td>Pasif</td>
+                                        <td>-</td>
                                     @endif
+                                    <td>{{Str::limit($contact->message, 25)}}</td>
                                     <td>
-                                        <a href="{{route("blog-details", $blog)}}" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000;"></i></a>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-blog-id="{{$blog->id}}"><i class="fa-solid fa-pen" style="color: #000000;"></i></button>
+                                        <button type="button" class="btn btn-success border-0" data-bs-toggle="modal" data-bs-target="#exampleModal" data-message-id="{{$contact->id}}" style="background-color: #a4c639">Tümünü Gör</button>
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                 <div class="modal-content">
                                                     <form id="editBlogForm">
                                                         @csrf
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Blog Güncelle</h1>
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Mesaj Detayı</h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <div class="col-lg-12">
-                                                                    <h4 class="px-3">Blog Başlığı</h4>
-                                                                    <input name="title" type="text" class="form-control mt-3 p-3"  style="border-radius: 25px" id="title" placeholder="Başlık giriniz" autocomplete="off" value="{{$blog->title}}">
+                                                                    <h4 class="px-3 text-center"><span id="name_surname">{{$contact->name_surname}}</span></h4>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mt-4">
+                                                                <div class="col-lg-12">
+                                                                    <h6 class="px-3"><b>E-Posta:</b> <span id="email">{{$contact->email}}</span> </h6>
                                                                 </div>
                                                             </div>
 
                                                             <div class="row mt-3">
                                                                 <div class="col-lg-12">
-                                                                    <h4 class="px-3">Blog İçeriği</h4>
-                                                                    <textarea name="content" class="form-control mt-3 p-3 shadow-none" rows="5" style="border-radius: 25px" id="content" placeholder="İçerik giriniz" autocomplete="off">{{$blog->content}}</textarea>
+                                                                    <h6 class="px-3"><b>Konu:</b> <span id="topic">{{$contact->topic}}</span> </h6>
                                                                 </div>
                                                             </div>
 
                                                             <div class="row mt-3">
                                                                 <div class="col-lg-12">
-                                                                    <span class="h4 px-3">Gönderi Durumu</span>
-                                                                    <select id="status" name="status" class="form-control mt-3 shadow-none" style="border-radius: 25px">
-                                                                        <option value="0" selected>Aktif</option>
-                                                                        <option value="1">Pasif</option>
-                                                                    </select>
+                                                                    <h6 class="px-3"><b>Mesaj:</b> <span id="message">{{$contact->message}}</span></h6>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                                                            <button id="editBlogButton" type="submit" class="btn btn-success border-0" style="background-color: #a4c639">Güncelle</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -162,63 +158,35 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let blogID;
+            let messageID;
 
             document.querySelectorAll('[data-bs-toggle="modal"]').forEach(button => {
                 button.addEventListener('click', function() {
-                    blogID = this.getAttribute('data-blog-id');
-                    console.log(blogID)
-                    fetch("{{route("getBlog")}}", {
+                    messageID = this.getAttribute('data-message-id');
+                    fetch("{{route("getMessage")}}", {
                         method: "POST",
                         headers: {
                             "X-CSRF-TOKEN": "{{ csrf_token() }}",
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                            blog_id: blogID
+                            message_id: messageID
                         })
                     })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            document.getElementById('title').value = data.title;
-                            document.getElementById('content').value = data.content;
-                            document.getElementById('title').value = data.title;
-                            document.getElementById('status').value = data.deleted_at ? '1' : '0';
+                            console.log(data.name_surname)
+                            document.getElementById('name_surname').textContent = data.name_surname;
+                            document.getElementById('email').textContent = data.email;
+                            document.getElementById('topic').textContent = data.topic ? data.topic : '-';
+                            document.getElementById('message').textContent = data.message;
                         } else {
                             alert("Bir hata oluştu, lütfen tekrar deneyin.");
                         }
                     })
                     .catch(error => console.error("Error:", error));
                 });
-            });
-
-            document.getElementById("editBlogButton").addEventListener("click", function(e) {
-                e.preventDefault()
-                if (blogID) {
-                    fetch("{{ route('admin.editBlog') }}", {
-                        method: "POST",
-                        headers: {
-                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            blog_id: blogID,
-                            title: document.getElementById('title').value,
-                            content: document.getElementById('content').value,
-                            status: document.getElementById('status').value,
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            location.reload();
-                        } else {
-                            alert("Bir hata oluştu, lütfen tekrar deneyin.");
-                        }
-                    })
-                    .catch(error => console.error("Error:", error));
-                }
             });
         });
     </script>
