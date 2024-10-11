@@ -145,7 +145,7 @@
                                                                     <p class="m-3 text-danger">{{$message}}</p>
                                                                     @enderror
                                                                 </div>
-                                                                <div class="col-lg-6">
+                                                                <div class="col-lg-6 mt-3 mt-lg-3">
                                                                     <span class="h4 px-3">Soyad</span>
                                                                     <input name="surname" type="text" class="form-control mt-3 p-3"  style="border-radius: 25px" id="surname" placeholder="Soyad giriniz" value="{{$user->surname}}" autocomplete="off">
                                                                     @error("surname")
@@ -162,7 +162,7 @@
                                                                     <p class="m-3 text-danger">{{$message}}</p>
                                                                     @enderror
                                                                 </div>
-                                                                <div class="col-lg-6">
+                                                                <div class="col-lg-6 mt-3 mt-lg-3">
                                                                     <span class="h4 px-3">Telefon</span>
                                                                     <input name="phone" type="tel" class="form-control mt-3 p-3 shadow-none"  style="border-radius: 25px" id="phone" placeholder="Telefon numarası giriniz" value="{{$user->phone}}" autocomplete="off">
                                                                     @error("phone")
@@ -182,7 +182,7 @@
                                                                     <p class="m-3 text-danger">{{$message}}</p>
                                                                     @enderror
                                                                 </div>
-                                                                <div class="col-lg-6">
+                                                                <div class="col-lg-6 mt-3 mt-lg-3">
                                                                     <span class="h4 px-3">Hesap Durumu</span>
                                                                     <select id="status" name="status" class="form-control mt-3 shadow-none" style="border-radius: 25px">
                                                                         <option value="0" selected>Aktif</option>
@@ -202,7 +202,7 @@
                                                                     <p class="m-3 text-danger">{{$message}}</p>
                                                                     @enderror
                                                                 </div>
-                                                                <div class="col-lg-6">
+                                                                <div class="col-lg-6 mt-3 mt-lg-3">
                                                                     <h4 class="px-3">Biyografi</h4>
                                                                     <textarea name="bio" class="form-control mt-3 p-3 shadow-none" style="border-radius: 25px" id="bio" placeholder="Kendinizi tanıtın" autocomplete="off">{{$user->bio}}</textarea>
                                                                     @error("bio")

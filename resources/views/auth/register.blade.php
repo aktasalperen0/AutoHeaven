@@ -8,10 +8,10 @@
 </style>
 
 @section("content")
-    <div class="page-heading p-5">
-        <div class="container p-5 mt-5">
+    <div class="page-heading p-lg-5">
+        <div class="container p-lg-5 px-5 mt-lg-5">
             <div class="row">
-                <div class="col-6 offset-3 p-5" style="background-color: #232323">
+                <div class="col-lg-6 offset-lg-3 p-5" style="background-color: #232323">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <h2>Hesap Oluştur</h2>
@@ -25,19 +25,19 @@
                         @endif
 
                         <div class="input-group mt-5">
-                            <input type="text" class="form-control border-0 p-3 shadow-none" placeholder="Ad" name="name" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
+                            <input type="text" class="form-control border-0 p-3 shadow-none" placeholder="Ad" name="name" value="{{old("name")}}" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">
-                            <input type="text" class="form-control border-0 p-3 shadow-none" placeholder="Soyad" name="surname" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
+                            <input type="text" class="form-control border-0 p-3 shadow-none" placeholder="Soyad" name="surname" value="{{old("surname")}}" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">
-                            <input type="email" class="form-control border-0 p-3 shadow-none" placeholder="E-Posta" name="email" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
+                            <input type="email" class="form-control border-0 p-3 shadow-none" placeholder="E-Posta" name="email" value="{{old("email")}}" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">
-                            <input type="tel" class="form-control border-0 p-3 shadow-none" placeholder="Telefon" name="phone" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
+                            <input type="tel" class="form-control border-0 p-3 shadow-none" placeholder="Telefon" name="phone" value="{{old("phone")}}" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">

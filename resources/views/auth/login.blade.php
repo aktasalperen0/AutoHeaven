@@ -8,10 +8,10 @@
 </style>
 
 @section("content")
-    <div class="page-heading p-5">
-        <div class="container p-5 mt-5">
+    <div class="page-heading p-lg-5">
+        <div class="container p-lg-5 px-5 mt-lg-5">
             <div class="row">
-                <div class="col-6 offset-3 p-5" style="background-color: #232323">
+                <div class="col-lg-6 offset-lg-3 p-5" style="background-color: #232323">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <h2>Giriş Yap</h2>
@@ -25,7 +25,7 @@
                         @endif
 
                         <div class="input-group mt-5">
-                            <input type="email" class="form-control border-0 shadow-none p-3" placeholder="E-Posta" name="email" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
+                            <input type="email" class="form-control border-0 shadow-none p-3" placeholder="E-Posta" name="email" value="{{old("email")}}" autocomplete="off" style="background-color: #343434; border-radius: 25px; color: #aaa !important;">
                         </div>
 
                         <div class="input-group mt-3">

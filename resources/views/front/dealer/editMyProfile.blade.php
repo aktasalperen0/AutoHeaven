@@ -37,7 +37,7 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-5 mt-lg-0">
                             <span class="h4 px-3">Soyad</span>
                             <input name="surname" type="text" class="form-control border-0 mt-3 p-3 shadow-none"  style="border-radius: 25px" id="surname" placeholder="Soyad giriniz" value="{{$user->surname}}" autocomplete="off">
                             @error("surname")
@@ -56,7 +56,7 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-5 mt-lg-0">
                             <span class="h4 px-3">Parola</span>
                             <input name="password" type="password" class="form-control border-0 mt-3 p-3 shadow-none"  style="border-radius: 25px" id="phone" placeholder="Parola giriniz" autocomplete="off">
                             @error("password")
@@ -75,7 +75,7 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-5 mt-lg-0">
                             <span class="h4 px-3">İş</span>
                             <input name="job" type="text" class="form-control border-0 mt-3 p-3 shadow-none"  style="border-radius: 25px" id="job" placeholder="İş giriniz" value="{{$user->job}}" autocomplete="off">
                             @error("job")
@@ -94,7 +94,7 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-5 mt-lg-0">
                             <h4 class="px-3">Fotoğraf Yükle <span class="float-right"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></button></span></h4>
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">

@@ -50,7 +50,7 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-5 mt-lg-0">
                             <span class="h4 px-3">Araç Hasarı</span>
                             <textarea name="damage-description" class="form-control border-0 mt-3 p-3 shadow-none" rows="3" style="border-radius: 25px" id="damage-description" placeholder="Açıklama giriniz" autocomplete="off">{{old("damage-description")}}</textarea>
                             @error("damage-description")
@@ -74,7 +74,7 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-5 mt-lg-0">
                             <span class="h4 px-3 ">Araç Modeli</span>
                             <select id="model" name="model" class="form-control mt-3 border-0 shadow-none" style="border-radius: 25px">
                                 <option value="0" selected disabled>Lütfen Model Seçiniz</option>
@@ -98,7 +98,7 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-5 mt-lg-0">
                             <span class="h4 px-3 ">Araç Rengi</span>
                             <select class="form-control mt-3 border-0 shadow-none" name="color" style="border-radius: 25px">
                                 <option value="0" selected disabled>Lütfen Renk Seçiniz</option>
@@ -129,8 +129,8 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
-                            <span class="h4 px-3 ">Araç Garantisi</span>
+                        <div class="col-lg-6 mt-5 mt-lg-0">
+                            <span class="h4 px-3">Araç Garantisi</span>
                             <select class="form-control mt-3 border-0 shadow-none" name="guarantee" style="border-radius: 25px">
                                 <option value="0" selected disabled>Lütfen Garanti Seçiniz</option>
                                 <option value="1">Var</option>
@@ -157,7 +157,7 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-5 mt-lg-0">
                             <span class="h4 px-3 ">Araç Yakıt Türü</span>
                             <select class="form-control mt-3 border-0 shadow-none" name="fuel" style="border-radius: 25px">
                                 <option value="0" selected disabled>Lütfen Yakıt Türü Seçiniz</option>
@@ -187,7 +187,7 @@
                             <p class="m-3 text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-5 mt-lg-0">
                             <span class="h4 px-3">Araç Fiyatı</span>
                             <div class="input-group mb-3">
                                 <input type="text" name="price" class="form-control mt-3 border-0 p-3 shadow-none" placeholder="Fiyat Giriniz" aria-label="Amount (to the nearest dollar)" style="border-radius: 25px" value="{{old("price")}}" autocomplete="off">
